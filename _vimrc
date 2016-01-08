@@ -12,9 +12,25 @@ set incsearch
 
 syntax on "コードの色分け
 
+"curor move
 noremap i k
 noremap j h
 noremap k j
 noremap h i
-noremap <RETURN> o<ESC>
+noremap <return> o<esc>
+
+"escape insert mode
+inoremap <silent> jj <esc>
+
+"行頭、行末に移動
+nnoremap 0 $
+nnoremap 1 0
+
+"括弧の設定
+inoremap { {}<left>
+inoremap [ []<left>
+inoremap ( ()<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap <> <><left>
 
