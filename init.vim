@@ -124,7 +124,7 @@ nnoremap [Denite]j :<C-u>Denite -mode=normal menu<CR>
 " プロジェクトディレクトリ
 let s:menus = {}
 let s:menus.projects = { 'description' : 'projects' }
-let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split']]
+let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split'],['VimFiler OldProjects', 'VimFiler /Users/sai708th/OldProjects -split']]
 let s:menus.xcode = { 'description' : 'xcode' }
 let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['build', 'new +:Xbuild']]
 call denite#custom#var('menu', 'menus', s:menus)
