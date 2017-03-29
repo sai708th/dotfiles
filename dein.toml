@@ -1,3 +1,6 @@
+#-------------------------------
+#   Shougo's plugins
+#-------------------------------
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -11,30 +14,47 @@ repo = 'Shougo/unite.vim'
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
+repo = 'Shougo/vimfiler.vim'
+
+
+[[plugins]]
+repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+# vim syntax for toml
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-repo = 'mitsuse/autocomplete-swift'
-depends = ['Shougo/deoplete.nvim']
-
+# vim help in Japanese 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+# swift
 [[plugins]]
 repo = 'apple/swift'
 
 [[plugins]]
+repo = 'keith/swift.vim'
+
+[[plugins]]
+repo = 'gfontenot/vim-xcode'
+
+[[plugins]]
+repo = 'landaire/deoplete-swift'
+
+#[[plugins]]
+#repo = 'mitsuse/autocomplete-swift'
+#depends = ['Shougo/deoplete.nvim']
+
+
+# submode (used for changing window size etc.)
+[[plugins]]
 repo = 'kana/vim-submode'
 
+# star search 
 [[plugins]]
 repo =  'nelstrom/vim-visual-star-search'
 
-[[plugins]]
-repo = 'w0ng/vim-hybrid'
-
-[[plugins]]
-repo = 'Shougo/vimfiler.vim'

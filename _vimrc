@@ -28,13 +28,14 @@ set backspace=indent,eol,start
 
 syntax on "コードの色分け
 
+"curor move
 noremap i k
 noremap j h
 noremap k j
 noremap h i
-nnoremap H I
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
+"escape insert mode
 inoremap <silent> jj <ESC>
 
 cnoremap <C-p> <Up>

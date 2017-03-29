@@ -1,35 +1,44 @@
-set runtimepath+=$XDG_DATA_HOME/repos/github.com/Shougo/dein.vim
-
 " dein settings {{{
-" dein自体の自動インストール
+" if dein doen't exit, clone from github
 let g:dein#install_process_timeout = 1000
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
-		call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+		call system('git clone https://github.com/Shougo/dein.vim '.shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 " プラグイン読み込み＆キャッシュ作成
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:toml_file   = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:toml_file2  = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
-		call dein#begin(s:dein_dir)
-		call dein#load_toml(s:toml_file)
-		call dein#end()
-		call dein#save_state()
+	call dein#begin(s:dein_dir)
+	call dein#load_toml(s:toml_file)
+	call dein#load_toml(s:toml_file2 , { 'lazy' : 1 })
+	call dein#end()
+	call dein#save_state()
 endif
 
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
-		call dein#install()
+	call dein#install()
 endif
 " }}}
+
+"====================================
+"   <- dein settings
+"------------------------------------
+"   other settings ->
+"====================================
+
 
 " その他設定
 filetype plugin indent on
 syntax enable
 autocmd FileType * set formatoptions-=ro
+autocmd BufNewFile,BufRead *.swift set filetype=swift
+autocmd FileType swift inoremap <buffer> <C-j> <Plug>(deoplete_swift_jump_to_placeholder)
 
 " 方向キー
 noremap i k
@@ -53,10 +62,7 @@ set hidden
 set showcmd
 set backspace=indent,eol,start
 set scrolloff=4
-
-" cursor line column highlight
-au WinLeave * set nocursorline 
-au WinEnter * set cursorline 
+set splitbelow
 
 " leader
 let mapleader = ' '
@@ -78,7 +84,16 @@ cnoremap <C-n> <Down>
 nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
 
 " vimfiler
-nnoremap <Leader>vv :<C-u>VimFilerBufferDir<CR>
+function! s:vimfiler_settings()
+	nnoremap <buffer><expr> v vimfiler#do_switch_action('vsplit')
+endfunction
+
+augroup vimfiler
+	autocmd FileType vimfiler call s:vimfiler_settings()
+augroup END
+
+let g:vimfiler_as_default_explorer = 1
+nnoremap <Leader>vb :<C-u>VimFilerBufferDir -split<CR>
 
 " Denite key mappings
 noremap [Denite] <Nop>
@@ -104,10 +119,28 @@ nnoremap [Denite]sa :<C-u>UniteBookmarkAdd<CR>
 nnoremap [Denite]m :<C-u>Denite -mode=normal -file_mru<CR>
 " line
 nnoremap [Denite]l :<C-u>Denite line<CR>
+" menu
+nnoremap [Denite]j :<C-u>Denite -mode=normal menu<CR>
+" プロジェクトディレクトリ
+let s:menus = {}
+let s:menus.projects = { 'description' : 'projects' }
+let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split']]
+let s:menus.xcode = { 'description' : 'xcode' }
+let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['build', 'new +:Xbuild']]
+call denite#custom#var('menu', 'menus', s:menus)
 
+
+" unite settings
+
+" complete mapping
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+imap <C-k>  <Plug>(neosnippet_expand_or_jump)
+smap <C-k>  <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>  <Plug>(neosnippet_expand_target)
 
 " 改行
-nnoremap <Leader><Leader> o<ESC>
+noremap <Leader><Leader> o<ESC>
 
 " 分割等設定
 nnoremap s <Nop>
