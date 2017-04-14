@@ -33,19 +33,27 @@ endif
 "====================================
 
 
+"---------------------------------------
 " その他設定
+"---------------------------------------
 filetype plugin indent on
 syntax enable
 autocmd FileType * set formatoptions-=ro
 autocmd BufNewFile,BufRead *.swift set filetype=swift
 autocmd FileType swift inoremap <buffer> <C-j> <Plug>(deoplete_swift_jump_to_placeholder)
 
-" 方向キー
-noremap i k
-noremap j h
-noremap h i
-noremap k j
 
+"---------------------------------------
+" 方向キー
+"---------------------------------------
+"noremap i k
+"noremap j h
+"noremap h i
+"noremap k j
+
+"---------------------------------------
+" attributes
+"---------------------------------------
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
@@ -64,26 +72,35 @@ set backspace=indent,eol,start
 set scrolloff=4
 set splitbelow
 
-" leader
-let mapleader = ' '
-
+"---------------------------------------
+" function key mapping
+"---------------------------------------
+" tatewari
+nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
 " edit vimrc <F5>
 nnoremap <F4> :<C-u>source $MYINITVIM<CR>
 
-" return off lighting
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
+"---------------------------------------
+" convenience key mapping
+"---------------------------------------
+" leader
+let mapleader = ' '
 " cancel
 inoremap <silent> jj <ESC>
-
-" comm mode mapping
+" 改行
+noremap <Leader><Leader> o<ESC>
+" return off lighting
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+" next, back for comm mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+" vv.. -> text block 
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
-" tatewari
-nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
-
+"---------------------------------------
 " vimfiler
+"---------------------------------------
 function! s:vimfiler_settings()
 	nnoremap <buffer><expr> v vimfiler#do_switch_action('vsplit')
 endfunction
@@ -95,7 +112,9 @@ augroup END
 let g:vimfiler_as_default_explorer = 1
 nnoremap <Leader>vb :<C-u>VimFilerBufferDir -split<CR>
 
+"---------------------------------------
 " Denite key mappings
+"---------------------------------------
 noremap [Denite] <Nop>
 nmap <Leader>d [Denite]
 call denite#custom#map('insert',"jj",'<denite:enter_mode:normal>')
@@ -126,32 +145,36 @@ let s:menus = {}
 let s:menus.projects = { 'description' : 'projects' }
 let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split'],['VimFiler OldProjects', 'VimFiler /Users/sai708th/OldProjects -split']]
 let s:menus.xcode = { 'description' : 'xcode' }
-let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['build', 'new +:Xbuild']]
+let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['add source', 'call AddSourceToXcode()']]
 call denite#custom#var('menu', 'menus', s:menus)
 
-
+"---------------------------------------
 " unite settings
+"---------------------------------------
 
-" complete mapping
+
+"---------------------------------------
+" mapping for completing
+"---------------------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 imap <C-k>  <Plug>(neosnippet_expand_or_jump)
 smap <C-k>  <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>  <Plug>(neosnippet_expand_target)
 
-" 改行
-noremap <Leader><Leader> o<ESC>
 
+"---------------------------------------
 " 分割等設定
+"---------------------------------------
 nnoremap s <Nop>
-nnoremap sj <C-w>h
-nnoremap sk <C-w>j
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
 nnoremap sl <C-w>l
-nnoremap si <C-w>k
-nnoremap sJ <C-w>H
-nnoremap sK <C-w>J
+nnoremap sk <C-w>k
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
 nnoremap sL <C-w>L
-nnoremap sI <C-w>K
+nnoremap sK <C-w>K
 nnoremap sn gt
 nnoremap sp gT
 nnoremap sr <C-w>r
@@ -173,6 +196,26 @@ call submode#map('bufmove', 'n', '', '>', '<C-w>>')
 call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+
+"---------------------------------------
+" Functions
+"---------------------------------------
+" for Xcode, make source, add to Xcode
+function! AddSourceToXcode()
+	let name = fnamemodify(expand("%:p"), ":t")
+	let projectpath = glob(expand("%:h") . '/../*.xcodeproj')
+	call system('ruby ~/Dev/RubyScripts/xcodeprojeditor.rb ' . projectpath . ' ' . name)
+endfunction
+
+
+
+
+
+
+
+
+
 
 
 

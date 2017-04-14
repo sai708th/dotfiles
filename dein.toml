@@ -23,6 +23,10 @@ repo = 'Shougo/neco-vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+# easy text object manipulating
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
 # vim syntax for toml
 [[plugins]]
 repo = 'cespare/vim-toml'
