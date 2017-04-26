@@ -8,6 +8,8 @@ export XDG_RUNTIME_DIR="$XDG_HOME/runtime"
 # initvim path
 export MYINITVIM='~/Dev/dotfiles/init.vim'
 
+export LYNX_CFG='~/.lynxcfg'
+
 # 初回シェル時のみ tmux実行
 if [ $SHLVL = 1 ]; then
 		  tmux

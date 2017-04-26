@@ -40,16 +40,16 @@ filetype plugin indent on
 syntax enable
 autocmd FileType * set formatoptions-=ro
 autocmd BufNewFile,BufRead *.swift set filetype=swift
-autocmd FileType swift inoremap <buffer> <C-j> <Plug>(deoplete_swift_jump_to_placeholder)
-
 
 "---------------------------------------
-" 方向キー
+" some keys, a little change for convenience
 "---------------------------------------
-"noremap i k
-"noremap j h
-"noremap h i
-"noremap k j
+noremap j gj
+noremap gj j 
+noremap k gk
+noremap gk k 
+noremap ; :
+noremap : ;
 
 "---------------------------------------
 " attributes
@@ -57,6 +57,7 @@ autocmd FileType swift inoremap <buffer> <C-j> <Plug>(deoplete_swift_jump_to_pla
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
+hi MatchParen ctermbg=1
 set hlsearch
 set tabstop=4 "インデントをスペース4つ分に設定
 set shiftwidth=4
@@ -110,7 +111,8 @@ augroup vimfiler
 augroup END
 
 let g:vimfiler_as_default_explorer = 1
-nnoremap <Leader>vb :<C-u>VimFilerBufferDir -split<CR>
+nnoremap <Leader>vb :<C-u>VimFilerBufferDir<CR>
+nnoremap <Leader>vs :<C-u>VimFilerBufferDir -split<CR>
 
 "---------------------------------------
 " Denite key mappings
@@ -118,10 +120,10 @@ nnoremap <Leader>vb :<C-u>VimFilerBufferDir -split<CR>
 noremap [Denite] <Nop>
 nmap <Leader>d [Denite]
 call denite#custom#map('insert',"jj",'<denite:enter_mode:normal>')
-call denite#custom#map('normal',"k",'<denite:move_to_next_line>')
-call denite#custom#map('normal',"i",'<denite:move_to_previous_line>')
-call denite#custom#map('normal',"h",'<denite:enter_mode:insert>')
-call denite#custom#map('normal',"j",'<Nop>')
+"call denite#custom#map('normal',"k",'<denite:move_to_next_line>')
+"call denite#custom#map('normal',"i",'<denite:move_to_previous_line>')
+"call denite#custom#map('normal',"h",'<denite:enter_mode:insert>')
+"call denite#custom#map('normal',"j",'<Nop>')
 call denite#custom#map('normal'," ",'<Nop>')
 " 現在開いているファイルのディレクトリ下のファイル一覧
 nnoremap [Denite]f :<C-u>DeniteBufferDir -buffer-name=files file_rec<CR>
@@ -158,9 +160,18 @@ call denite#custom#var('menu', 'menus', s:menus)
 "---------------------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-imap <C-k>  <Plug>(neosnippet_expand_or_jump)
-smap <C-k>  <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>  <Plug>(neosnippet_expand_target)
+let g:neosnippet#snippets_directory = expand('~/Dev/snippets/')
+" Plugin key-mappings.
+" SuperTab like snippets behavior.
+nmap <expr><C-k> neosnippet#expandable_or_jumpable() ?
+\	"i\<Plug>(neosnippet_expand_or_jump)" : "\<Nop>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 
 "---------------------------------------

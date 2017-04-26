@@ -46,13 +46,12 @@ repo = 'keith/swift.vim'
 [[plugins]]
 repo = 'gfontenot/vim-xcode'
 
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-
 #[[plugins]]
-#repo = 'mitsuse/autocomplete-swift'
-#depends = ['Shougo/deoplete.nvim']
+#repo = 'landaire/deoplete-swift'
 
+[[plugins]]
+repo = 'mitsuse/autocomplete-swift'
+depends = ['Shougo/deoplete.nvim']
 
 # submode (used for changing window size etc.)
 [[plugins]]
