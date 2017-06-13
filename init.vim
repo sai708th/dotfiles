@@ -3,9 +3,9 @@
 let g:dein#install_process_timeout = 1000
 let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:dein_repo_dir = s:cache_home . '/dein.vim'
 if !isdirectory(s:dein_repo_dir)
-		call system('git clone https://github.com/Shougo/dein.vim '.shellescape(s:dein_repo_dir))
+	call system('git clone https://github.com/Shougo/dein.vim '.shellescape(s:dein_repo_dir))
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
@@ -36,18 +36,18 @@ endif
 "---------------------------------------
 " その他設定
 "---------------------------------------
-filetype plugin indent on
+filetype off
+filetype plugin indent off
 syntax enable
 autocmd FileType * set formatoptions-=ro
-autocmd BufNewFile,BufRead *.swift set filetype=swift
 
 "---------------------------------------
 " some keys, a little change for convenience
 "---------------------------------------
-noremap j gj
-noremap gj j 
-noremap k gk
-noremap gk k 
+nnoremap j gj
+nnoremap gj j 
+nnoremap k gk
+nnoremap gk k 
 noremap ; :
 noremap : ;
 
@@ -56,8 +56,9 @@ noremap : ;
 "---------------------------------------
 set number "行番号を表示する
 set title "編集中のファイル名を表示
-set showmatch "括弧入力時の対応する括弧を表示
+"set showmatch "括弧入力時の対応する括弧を表示
 hi MatchParen ctermbg=1
+hi Folded ctermbg=185
 set hlsearch
 set tabstop=4 "インデントをスペース4つ分に設定
 set shiftwidth=4
@@ -72,6 +73,8 @@ set showcmd
 set backspace=indent,eol,start
 set scrolloff=4
 set splitbelow
+set foldmethod=indent "おりたたみ:indent
+set synmaxcol=200 
 
 "---------------------------------------
 " function key mapping
@@ -156,22 +159,16 @@ call denite#custom#var('menu', 'menus', s:menus)
 
 
 "---------------------------------------
-" mapping for completing
+" qfixhowm(todo manager) settings
 "---------------------------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:neosnippet#snippets_directory = expand('~/Dev/snippets/')
-" Plugin key-mappings.
-" SuperTab like snippets behavior.
-nmap <expr><C-k> neosnippet#expandable_or_jumpable() ?
-\	"i\<Plug>(neosnippet_expand_or_jump)" : "\<Nop>"
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
+let howm_dir          = '~/howm'
+let howm_filename     = '%Y/%Y-%m-%d-%H%M%S.txt'
+let howm_fileencoding = 'utf-8'
+let howm_fileformat   = 'unix'
+let QFixHowm_FileType = 'qfix_memo'
+let QFixHowm_Key      = '<Space>'
+let QFixHowm_KeyB     = 'g'
+let QFixHowm_DiaryFile = 'diary/%Y-%m-%d-000000.txt'
 
 
 "---------------------------------------
@@ -218,13 +215,6 @@ function! AddSourceToXcode()
 	let projectpath = glob(expand("%:h") . '/../*.xcodeproj')
 	call system('ruby ~/Dev/RubyScripts/xcodeprojeditor.rb ' . projectpath . ' ' . name)
 endfunction
-
-
-
-
-
-
-
 
 
 

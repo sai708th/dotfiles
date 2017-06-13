@@ -36,15 +36,25 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+# vim todo QFixHowm
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+
 # swift
 [[plugins]]
 repo = 'apple/swift'
+on_ft = ['swift']
 
 [[plugins]]
 repo = 'keith/swift.vim'
+on_ft = ['swift']
 
 [[plugins]]
 repo = 'gfontenot/vim-xcode'
+on_ft = ['swift']
+
+[[plugins]]
+repo = 'kballard/vim-swift'
 
 #[[plugins]]
 #repo = 'landaire/deoplete-swift'
@@ -60,4 +70,8 @@ repo = 'kana/vim-submode'
 # star search 
 [[plugins]]
 repo =  'nelstrom/vim-visual-star-search'
+
+# syntax check
+[[plugins]]
+repo = 'scrooloose/syntastic'
 
