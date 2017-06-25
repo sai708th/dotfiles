@@ -151,7 +151,16 @@ let s:menus.projects = { 'description' : 'projects' }
 let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split'],['VimFiler OldProjects', 'VimFiler /Users/sai708th/OldProjects -split']]
 let s:menus.xcode = { 'description' : 'xcode' }
 let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['add source', 'call AddSourceToXcode()']]
+let s:menus.qfixhowm = { 'description' : 'QFixHowm' }
+let s:menus.qfixhowm.command_candidates = [
+\	['recent files', 'normal g,l'],
+\	['new diary', 'normal g, '],
+\	['diary list', 'normal g,A'],
+\	['create memo', 'normal g,c']]
 call denite#custom#var('menu', 'menus', s:menus)
+
+
+
 
 "---------------------------------------
 " unite settings
@@ -166,8 +175,8 @@ let howm_filename     = '%Y/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat   = 'unix'
 let QFixHowm_FileType = 'qfix_memo'
-let QFixHowm_Key      = '<Space>'
-let QFixHowm_KeyB     = 'g'
+"let QFixHowm_Key      = '<Space>'
+"let QFixHowm_KeyB     = 'g'
 let QFixHowm_DiaryFile = 'diary/%Y-%m-%d-000000.txt'
 
 
