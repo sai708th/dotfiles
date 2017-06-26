@@ -1,3 +1,19 @@
 export TERM=xterm-color256
 shopt -s nullglob
 shopt -s failglob
+
+# 環境変数 XDG Base Directory Specification
+export XDG_HOME="$HOME/Dev/XDG"
+export XDG_CONFIG_HOME="$XDG_HOME/config"
+export XDG_DATA_HOME="$XDG_HOME/data"
+export XDG_CACHE_HOME="$XDG_HOME/cache"
+export XDG_RUNTIME_DIR="$XDG_HOME/runtime"
+
+# initvim path
+export MYINITVIM="$HOME/Dev/dotfiles/init.vim"
+
+# 初回シェル時のみ tmux実行
+if [ $SHLVL = 1 ]; then
+	  tmux
+	  fi
+	  

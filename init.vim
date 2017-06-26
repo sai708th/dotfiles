@@ -226,7 +226,13 @@ function! AddSourceToXcode()
 endfunction
 
 
-
+"---------------------------------------
+" Source
+"---------------------------------------
+augroup MYSWIFT
+	au!
+    "au FileType swift source ("$HOME_DOTFILES" . '/swift.vim')
+augroup END
 
 
 
