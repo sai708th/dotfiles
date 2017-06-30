@@ -75,6 +75,7 @@ set scrolloff=4
 set splitbelow
 set foldmethod=indent "おりたたみ:indent
 set synmaxcol=200 
+set noswapfile
 
 "---------------------------------------
 " function key mapping
@@ -231,7 +232,7 @@ endfunction
 "---------------------------------------
 augroup MYSWIFT
 	au!
-    "au FileType swift source ("$HOME_DOTFILES" . '/swift.vim')
+    au FileType swift source $HOME_DOTFILES/swift.vim
 augroup END
 
 

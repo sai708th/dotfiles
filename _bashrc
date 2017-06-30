@@ -1,4 +1,4 @@
-export TERM=xterm-color256
+export TERM=xterm-256color
 shopt -s nullglob
 shopt -s failglob
 
@@ -10,10 +10,7 @@ export XDG_CACHE_HOME="$XDG_HOME/cache"
 export XDG_RUNTIME_DIR="$XDG_HOME/runtime"
 
 # initvim path
-export MYINITVIM="$HOME/Dev/dotfiles/init.vim"
+export HOME_DOTFILES="$HOME/Dev/dotfiles"
+export MYINITVIM="$HOME_DOTFILES/init.vim"
 
-# 初回シェル時のみ tmux実行
-if [ $SHLVL = 1 ]; then
-	  tmux
-	  fi
-	  
+
