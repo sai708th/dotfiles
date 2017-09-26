@@ -32,7 +32,6 @@ endif
 "   other settings ->
 "====================================
 
-
 "---------------------------------------
 " その他設定
 "---------------------------------------
@@ -76,6 +75,9 @@ set splitbelow
 set foldmethod=indent "おりたたみ:indent
 set synmaxcol=200 
 set noswapfile
+set clipboard=unnamed
+"set list
+set listchars=tab:»-,trail:-,nbsp:%
 
 "---------------------------------------
 " function key mapping
@@ -154,10 +156,10 @@ let s:menus.xcode = { 'description' : 'xcode' }
 let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['add source', 'call AddSourceToXcode()']]
 let s:menus.qfixhowm = { 'description' : 'QFixHowm' }
 let s:menus.qfixhowm.command_candidates = [
-\	['recent files', 'normal g,l'],
+\	['diaries', 'normal g,l'],
+\	['all files', 'normal g,rA'],
 \	['new diary', 'normal g, '],
-\	['diary list', 'normal g,A'],
-\	['create memo', 'normal g,c']]
+\	['new memo', 'normal g,c']]
 call denite#custom#var('menu', 'menus', s:menus)
 
 
@@ -172,17 +174,19 @@ call denite#custom#var('menu', 'menus', s:menus)
 " qfixhowm(todo manager) settings
 "---------------------------------------
 let howm_dir          = '~/howm'
-let howm_filename     = '%Y/%Y-%m-%d-%H%M%S.txt'
+let howm_filename     = '%Y/%Y.%m.%d-%H%M.mkd'
 let howm_fileencoding = 'utf-8'
 let howm_fileformat   = 'unix'
-let QFixHowm_FileType = 'qfix_memo'
+"let QFixHowm_FileType = 'qfix_memo'
 "let QFixHowm_Key      = '<Space>'
 "let QFixHowm_KeyB     = 'g'
-let QFixHowm_DiaryFile = 'diary/%Y-%m-%d-000000.txt'
+let QFixHowm_DiaryFile = 'diary/%Y.%m.%d.txt'
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#'
 
 
 "---------------------------------------
-" 分割等設定
+" 分割等設定 key mapping s
 "---------------------------------------
 nnoremap s <Nop>
 nnoremap sh <C-w>h
@@ -215,6 +219,15 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
+"---------------------------------------
+" Key Mapping g
+"---------------------------------------
+noremap [gMap] <Nop>
+nmap <Leader>g [gMap]
+nnoremap [gMap]n :cnext<CR>
+nnoremap [gMap]p :cprevious<CR>
+
+
 
 "---------------------------------------
 " Functions
@@ -236,6 +249,5 @@ augroup MYSWIFT
 augroup END
 
 
-
-
+filetype plugin indent on
 

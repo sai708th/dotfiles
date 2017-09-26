@@ -40,11 +40,14 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'fuenor/qfixhowm'
 
+#-------------------
 # swift
+#-------------------
 [[plugins]]
 repo = 'apple/swift'
 on_ft = ['swift']
 
+#syntax
 [[plugins]]
 repo = 'keith/swift.vim'
 on_ft = ['swift']
@@ -53,15 +56,18 @@ on_ft = ['swift']
 repo = 'gfontenot/vim-xcode'
 on_ft = ['swift']
 
+#syntax
+#[[plugins]]
+#repo = 'kballard/vim-swift'
+#on_ft = ['swift']
+
 [[plugins]]
-repo = 'kballard/vim-swift'
+repo = 'landaire/deoplete-swift'
+on_ft = ['swift']
 
 #[[plugins]]
-#repo = 'landaire/deoplete-swift'
-
-[[plugins]]
-repo = 'mitsuse/autocomplete-swift'
-depends = ['Shougo/deoplete.nvim']
+#repo = 'mitsuse/autocomplete-swift'
+#depends = ['Shougo/deoplete.nvim']
 
 # submode (used for changing window size etc.)
 [[plugins]]
@@ -75,3 +81,7 @@ repo =  'nelstrom/vim-visual-star-search'
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
+# deoplete clang
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['c','cpp','m','mpp']

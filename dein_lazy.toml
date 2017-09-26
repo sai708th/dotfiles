@@ -6,7 +6,6 @@
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertCharPre'
 hook_post_source = '''
-	let g:deoplete#disable_auto_complete = 1
 	let g:deoplete#enable_camel_case = 0
 	let g:deoplete#enable_ignore_case = 0
 	let g:deoplete#enable_refresh_always = 0
@@ -24,6 +23,7 @@ hook_post_source = '''
 	imap <C-k> <Plug>(neosnippet_expand_or_jump)
 	xmap <C-k> <Plug>(neosnippet_expand_target)
 	let g:neosnippet#snippets_directory = expand('~/Dev/snippets/')
+	set noexpandtab
 '''
 on_i  = 1
 on_ft = ['snippet']
@@ -34,7 +34,7 @@ repo = 'kannokanno/previm'
 hook_post_source = '''
 	let g:previm_open_cmd = 'open -a Firefox'
 '''
-on_ft = 'md'
+on_ft = ['md','txt']
 
 
 
