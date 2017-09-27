@@ -61,6 +61,13 @@ $ nvim
 ~> timeout: Error installing plugins: swift 
 ~> completed. (3rd try.)
 
+7. Setup denite (need python3)
+$ brew install python3
+$ pip3 install neovim
+rem. this is NOT neovim, but support soft.
+write below code at init.vim, restart nvim.
+let g:python3_host_prog = '/path/to/python3'
+
 
 100. Install other tools
 $ brew install tree
