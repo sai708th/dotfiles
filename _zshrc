@@ -30,5 +30,6 @@ export HOME_DOTFILES="$HOME/Dev/dotfiles"
 export MYINITVIM="$HOME_DOTFILES/init.vim"
 
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
+alias mv='mv -i'
 
 
