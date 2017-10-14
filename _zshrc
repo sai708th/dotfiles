@@ -16,7 +16,6 @@ function pet-select() {
 zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
-alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 
 # 環境変数 XDG Base Directory Specification
 export XDG_HOME="$HOME/Dev/XDG"
