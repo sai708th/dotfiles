@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Naoya SHIRATORI
+#	email = naoya19960313@gmail.com
+[user]
+	name = Naoya SHIRATORI
+	email = naoya19960313@gmail.com
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	gra = log --all --decorate --graph --oneline
+[merge]
+	ff = false
+[pull]
+	ff = only
