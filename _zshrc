@@ -28,6 +28,9 @@ export XDG_RUNTIME_DIR="$XDG_HOME/runtime"
 export HOME_DOTFILES="$HOME/Dev/dotfiles"
 export MYINITVIM="$HOME_DOTFILES/init.vim"
 
+# nodebrew path
+export PATH="$PATH:$HOME/.nodebrew/current/bin"
+
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias mv='mv -i'
 

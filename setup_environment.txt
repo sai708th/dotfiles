@@ -1,5 +1,9 @@
 環境構築メモ
 
+#---------------------------------------
+# Part 1
+#---------------------------------------
+
 # Setup list
 zsh
 tux
@@ -68,9 +72,36 @@ rem. this is NOT neovim, but support soft.
 write below code at init.vim, restart nvim.
 let g:python3_host_prog = '/path/to/python3'
 
-
 100. Install other tools
 $ brew install tree
 $ brew install knqyf263/pet/pet
 $ brew install coreutils 
+
+
+#---------------------------------------
+# Part 2 gitbook
+#---------------------------------------
+
+1. Install nodebrew
+$ brew install nodebrew
+$ nodebrew -v
+
+2. Install nodejs
+$ mkdir ~/.nodebrew
+$ mkdir ~/.nodebrew/src
+$ nodebrew install-binary latest
+$ nodebrew use v7.0.0 (<- tekitou ni kaeru
+
+3. Setting PATH
+bashrc, zshrc wo kakunin.
+check below commands to be successed
+$ node -v
+$ npm -v
+
+4. Install gitbook
+$ npm install gitbook-cli -g
+
+$ mkdir test
+$ cd test
+$ gitbook init
 
