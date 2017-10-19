@@ -20,10 +20,10 @@ on_i = 1
 repo = 'Shougo/neosnippet'
 hook_post_source = '''
 	nmap <C-k> <Plug>(neosnippet_jump)
-	imap <C-k> <Plug>(neosnippet_expand_or_jump)
+	imap <C-k> <Plug>(neosnippet_jump_or_expand)
+	smap <C-k> <Plug>(neosnippet_jump_or_expand)
 	xmap <C-k> <Plug>(neosnippet_expand_target)
 	let g:neosnippet#snippets_directory = expand('~/Dev/snippets/')
-	set noexpandtab
 '''
 on_i  = 1
 on_ft = ['snippet']
