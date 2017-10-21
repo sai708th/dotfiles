@@ -105,3 +105,6 @@ $ mkdir test
 $ cd test
 $ gitbook init
 
+5. Install mermaid for gitbook
+$ npm install gitbook-plugin-mermaid
+
