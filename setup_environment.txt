@@ -90,7 +90,7 @@ $ nodebrew -v
 $ mkdir ~/.nodebrew
 $ mkdir ~/.nodebrew/src
 $ nodebrew install-binary latest
-$ nodebrew use v7.0.0 (<- tekitou ni kaeru
+$ nodebrew use stable
 
 3. Setting PATH
 bashrc, zshrc wo kakunin.
