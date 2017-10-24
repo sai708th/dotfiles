@@ -126,10 +126,6 @@ nnoremap <Leader>vs :<C-u>VimFilerBufferDir -split<CR>
 noremap [Denite] <Nop>
 nmap <Leader>d [Denite]
 call denite#custom#map('insert',"jj",'<denite:enter_mode:normal>')
-"call denite#custom#map('normal',"k",'<denite:move_to_next_line>')
-"call denite#custom#map('normal',"i",'<denite:move_to_previous_line>')
-"call denite#custom#map('normal',"h",'<denite:enter_mode:insert>')
-"call denite#custom#map('normal',"j",'<Nop>')
 call denite#custom#map('normal'," ",'<Nop>')
 " 現在開いているファイルのディレクトリ下のファイル一覧
 nnoremap [Denite]f :<C-u>DeniteBufferDir -buffer-name=files file_rec<CR>
