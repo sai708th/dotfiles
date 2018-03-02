@@ -106,5 +106,15 @@ $ cd test
 $ gitbook init
 
 5. Install mermaid for gitbook
-$ npm install gitbook-plugin-mermaid
+$ npm install gitbook-plugin-mermaid -g
+
+#--------------------------------------------
+# Haskell
+#--------------------------------------------
+
+1. Install
+$ brew install ghc
+$ brew install haskell-stack 
+haskell-stack ha ghci + xcode tekinayatsu
+
 
