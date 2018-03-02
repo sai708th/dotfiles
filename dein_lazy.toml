@@ -24,6 +24,7 @@ hook_post_source = '''
 	smap <C-k> <Plug>(neosnippet_jump_or_expand)
 	xmap <C-k> <Plug>(neosnippet_expand_target)
 	let g:neosnippet#snippets_directory = expand('~/Dev/snippets/')
+	autocmd BufRead,BufNewFile *.snip setlocal noexpandtab list
 '''
 on_i  = 1
 on_ft = ['snippet']
