@@ -117,4 +117,11 @@ $ brew install ghc
 $ brew install haskell-stack 
 haskell-stack ha ghci + xcode tekinayatsu
 
+$ stack new PFAD
+$ cd PFAD
+$ stack build
+
+$ brew install cabal-install
+$ cabal update
+$ cabal install parsec
 
