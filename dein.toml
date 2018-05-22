@@ -39,10 +39,6 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
-# vim todo QFixHowm
-[[plugins]]
-repo = 'fuenor/qfixhowm'
-
 # git in vim
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -74,8 +70,8 @@ repo = 'landaire/deoplete-swift'
 on_ft = ['swift']
 
 #[[plugins]]
-#repo = 'mitsuse/autocomplete-swift'
-#depends = ['Shougo/deoplete.nvim']
+repo = 'mitsuse/autocomplete-swift'
+depends = ['Shougo/deoplete.nvim']
 
 # submode (used for changing window size etc.)
 [[plugins]]
