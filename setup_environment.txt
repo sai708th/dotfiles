@@ -77,6 +77,11 @@ $ brew install tree
 $ brew install knqyf263/pet/pet
 $ brew install coreutils 
 
+memo:
+    '18.5.22
+        neovim installed from brew was not launched.
+        (pointer being freed was not allocated)
+        tar.gz file of neovim from official repository was successfully launched.
 
 #---------------------------------------
 # Part 2 gitbook
@@ -125,3 +130,8 @@ $ brew install cabal-install
 $ cabal update
 $ cabal install parsec
 
+#--------------------------------------------
+# Coq
+#--------------------------------------------
+$ pip2 install neovim
+nvim needs python2 suuport (not python3)
