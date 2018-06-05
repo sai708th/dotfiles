@@ -31,9 +31,13 @@ export MYINITVIM="$HOME_DOTFILES/init.vim"
 # nodebrew path
 export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
+# java path
+export JAVA_HOME=`/usr/libexec/java_home -v 1.10`
+
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias mv='mv -i'
 alias cd='(){ cd $1 ; ls }'
 alias tree='tree -L 2'
 
-
+# OPAM configuration
+. /Users/naoya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

@@ -10,8 +10,8 @@ endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 
 " プラグイン読み込み＆キャッシュ作成
-let s:toml_file   = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
-let s:toml_file2  = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+let s:toml_file   = expand("<sfile>:h").'/dein.toml'
+let s:toml_file2  = expand("<sfile>:h").'/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
 	call dein#load_toml(s:toml_file)
@@ -55,7 +55,6 @@ noremap : ;
 "---------------------------------------
 set number "行番号を表示する
 set title "編集中のファイル名を表示
-"set showmatch "括弧入力時の対応する括弧を表示
 hi MatchParen ctermbg=1
 hi Folded ctermbg=185
 set hlsearch
@@ -78,7 +77,6 @@ set foldmethod=indent "おりたたみ:indent
 set synmaxcol=200 
 set noswapfile
 set clipboard=unnamed
-"set list
 set listchars=tab:»-,trail:-,nbsp:%
 
 "---------------------------------------
@@ -98,7 +96,7 @@ let mapleader = ' '
 inoremap <silent> jj <ESC>
 " 改行
 noremap <Leader><Leader> o<ESC>
-" return off lighting
+" turn off lighting
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " next, back for comm mode
 cnoremap <C-p> <Up>
@@ -160,41 +158,26 @@ let s:menus.qfixhowm.command_candidates = [
 \	['new memo', 'normal g,c']]
 call denite#custom#var('menu', 'menus', s:menus)
 
-
-
-
 "---------------------------------------
 " unite settings
 "---------------------------------------
 
 
 "---------------------------------------
-" qfixhowm(todo manager) settings
-"---------------------------------------
-let howm_dir          = '~/howm'
-let howm_filename     = '%Y/%Y.%m.%d-%H%M.mkd'
-let howm_fileencoding = 'utf-8'
-let howm_fileformat   = 'unix'
-"let QFixHowm_FileType = 'qfix_memo'
-"let QFixHowm_Key      = '<Space>'
-"let QFixHowm_KeyB     = 'g'
-let QFixHowm_DiaryFile = 'diary/%Y.%m.%d.txt'
-let QFixHowm_FileType = 'markdown'
-let QFixHowm_Title = '#'
-
-
-"---------------------------------------
 " 分割等設定 key mapping s
 "---------------------------------------
 nnoremap s <Nop>
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sl <C-w>l
-nnoremap sk <C-w>k
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sL <C-w>L
-nnoremap sK <C-w>K
+" cursor move
+nnoremap sh <C-w>h  
+nnoremap sj <C-w>j  
+nnoremap sl <C-w>l  
+nnoremap sk <C-w>k  
+" window move
+nnoremap sH <C-w>H  
+nnoremap sJ <C-w>J  
+nnoremap sL <C-w>L  
+nnoremap sK <C-w>K  
+" tab move
 nnoremap sn gt
 nnoremap sp gT
 nnoremap sr <C-w>r
@@ -246,6 +229,15 @@ augroup MYSWIFT
     au FileType swift source $HOME_DOTFILES/swift.vim
 augroup END
 
+"------------------------------------
+" coq
+"------------------------------------
+augroup coq
+    autocmd FileType coq nmap <silent> <C-n> ;call CoqNext()<CR>
+    autocmd FileType coq nmap <silent> <C-p> ;call CoqUndo()<CR>
+    autocmd FileType coq nmap <silent> <C-c><C-c> ;call CoqToCursor()<CR>
+    autocmd FileType coq nmap <silent> <C-c><C-l> ;call CoqLaunch()<CR>
+augroup END
 
 filetype plugin indent on
 

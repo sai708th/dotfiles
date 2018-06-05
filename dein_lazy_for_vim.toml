@@ -23,6 +23,14 @@ hook_post_source = '''
 '''
 on_ft = ['md','txt']
 
+[[plugins]]
+repo = "jvoorhis/coq.vim"
+on_ft = "coq"
+
+[[plugins]]
+repo = "vim-scripts/CoqIDE"
+on_ft = "coq"
+
 #[[plugins]]
 #repo = "let-def/vimbufsync"
 #on_ft = "coq"
@@ -31,8 +39,3 @@ on_ft = ['md','txt']
 #repo = "the-lambda-church/coquille"
 #on_ft = "coq"
 #depends = ["vimbufsync"]
-
-[[plugins]]
-repo = "https://framagit.org/tyreunom/coquille"
-on_ft = "coq"
-

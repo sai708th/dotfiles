@@ -72,18 +72,9 @@ on_ft = ['swift']
 repo = 'gfontenot/vim-xcode'
 on_ft = ['swift']
 
-#syntax
-#[[plugins]]
-#repo = 'kballard/vim-swift'
-#on_ft = ['swift']
-
 [[plugins]]
 repo = 'landaire/deoplete-swift'
 on_ft = ['swift']
-
-#[[plugins]]
-#repo = 'mitsuse/autocomplete-swift'
-#depends = ['Shougo/deoplete.nvim']
 
 # submode (used for changing window size etc.)
 [[plugins]]
