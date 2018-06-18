@@ -116,7 +116,6 @@ $ npm install gitbook-plugin-mermaid -g
 #--------------------------------------------
 # Haskell
 #--------------------------------------------
-
 1. Install
 $ brew install ghc
 $ brew install haskell-stack 
@@ -133,5 +132,17 @@ $ cabal install parsec
 #--------------------------------------------
 # Coq
 #--------------------------------------------
-$ pip2 install neovim
-nvim needs python2 suuport (not python3)
+nvim ha coquille wo tsukau beshi
+need: coq install
+1. opam install
+$ brew install opam
+$ opam init
+$ eval `opam config env`
+
+2. coq install
+opam repo add coq-released https://coq.inria.fr/opam/released
+opam install coqide.8.8.0
+opam install coq-mathcomp-ssreflect.1.7.0
+
+
+

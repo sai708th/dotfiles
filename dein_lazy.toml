@@ -23,9 +23,9 @@ hook_post_source = '''
 '''
 on_ft = ['md','txt']
 
-#[[plugins]]
-#repo = "let-def/vimbufsync"
-#on_ft = "coq"
+[[plugins]]
+repo = "let-def/vimbufsync"
+on_ft = "coq"
 #
 #[[plugins]]
 #repo = "the-lambda-church/coquille"
