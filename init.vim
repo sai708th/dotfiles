@@ -84,8 +84,10 @@ set listchars=tab:»-,trail:-,nbsp:%
 "---------------------------------------
 " tatewari
 nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
-" edit vimrc <F5>
+" reload 
+nnoremap <F3> :call neosnippet#variables#set_snippets({})<cr>
 nnoremap <F4> :<C-u>source $MYINITVIM<CR>
+" edit vimrc 
 nnoremap <F5> zM
 nnoremap <F6> zm
 nnoremap <F7> zr
