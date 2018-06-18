@@ -56,7 +56,7 @@ noremap : ;
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 hi MatchParen ctermbg=1
-hi Folded ctermbg=185
+hi Folded ctermbg=8
 set hlsearch
 set tabstop=4 "インデントをスペース4つ分に設定
 set softtabstop=4 "delete space width
@@ -86,6 +86,10 @@ set listchars=tab:»-,trail:-,nbsp:%
 nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
 " edit vimrc <F5>
 nnoremap <F4> :<C-u>source $MYINITVIM<CR>
+nnoremap <F5> zM
+nnoremap <F6> zm
+nnoremap <F7> zr
+nnoremap <F8> zR
 
 "---------------------------------------
 " convenience key mapping
@@ -117,6 +121,7 @@ augroup vimfiler
 augroup END
 
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_ignore_pattern = '^\%(.git\|.DS_Store\)$'
 nnoremap <Leader>vb :<C-u>VimFilerBufferDir<CR>
 nnoremap <Leader>vs :<C-u>VimFilerBufferDir -split<CR>
 
