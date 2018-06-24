@@ -140,9 +140,14 @@ $ opam init
 $ eval `opam config env`
 
 2. coq install
-opam repo add coq-released https://coq.inria.fr/opam/released
-opam install coqide.8.8.0
-opam install coq-mathcomp-ssreflect.1.7.0
+url: https://staff.aist.go.jp/reynald.affeldt/ssrcoq/install.html
+$ opam repo add coq-released https://coq.inria.fr/opam/released
+$ opam install coqide.8.8.0
+$ opam install coq-mathcomp-ssreflect.1.7.0
+$ opam install coq-mathcomp-algebra
+( coq-mathcomp-fingroup)
+$ opam install coq-mathcomp=character
+( coq-mathcomp- field, solvable)
 
 
 
