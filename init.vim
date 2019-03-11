@@ -37,8 +37,10 @@ endif
 "---------------------------------------
 filetype off
 filetype plugin indent off
-syntax enable
 autocmd FileType * set formatoptions-=ro
+syntax enable
+colorscheme desert
+hi Search ctermfg=white
 
 "---------------------------------------
 " some keys, a little change for convenience
@@ -55,8 +57,6 @@ noremap : ;
 "---------------------------------------
 set number "行番号を表示する
 set title "編集中のファイル名を表示
-hi MatchParen ctermbg=1
-hi Folded ctermbg=8
 set hlsearch
 set tabstop=4 "インデントをスペース4つ分に設定
 set softtabstop=4 "delete space width
@@ -214,37 +214,4 @@ noremap [gMap] <Nop>
 nmap <Leader>g [gMap]
 nnoremap [gMap]n :cnext<CR>
 nnoremap [gMap]p :cprevious<CR>
-
-
-
-"---------------------------------------
-" Functions
-"---------------------------------------
-" for Xcode, make source, add to Xcode
-function! AddSourceToXcode()
-	let name = fnamemodify(expand("%:p"), ":t")
-	let projectpath = glob(expand("%:h") . '/../*.xcodeproj')
-	call system('ruby ~/Dev/RubyScripts/xcodeprojeditor.rb ' . projectpath . ' ' . name)
-endfunction
-
-
-"---------------------------------------
-" Source
-"---------------------------------------
-augroup MYSWIFT
-	au!
-    au FileType swift source $HOME_DOTFILES/swift.vim
-augroup END
-
-"------------------------------------
-" coq
-"------------------------------------
-augroup coq
-    autocmd FileType coq nmap <silent> <C-n> ;call CoqNext()<CR>
-    autocmd FileType coq nmap <silent> <C-p> ;call CoqUndo()<CR>
-    autocmd FileType coq nmap <silent> <C-c><C-c> ;call CoqToCursor()<CR>
-    autocmd FileType coq nmap <silent> <C-c><C-l> ;call CoqLaunch()<CR>
-augroup END
-
-filetype plugin indent on
 
