@@ -215,3 +215,5 @@ nmap <Leader>g [gMap]
 nnoremap [gMap]n :cnext<CR>
 nnoremap [gMap]p :cprevious<CR>
 
+filetype plugin indent on
+
