@@ -1,39 +1,10 @@
-" dein settings {{{
-" if dein doen't exit, clone from github
-let g:dein#install_process_timeout = 1000
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:cache_home . '/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-	call system('git clone https://github.com/Shougo/dein.vim '.shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
+let s:vimscripts_dir = $HOME_DOTFILES . '/vimscripts'
 
-" プラグイン読み込み＆キャッシュ作成
-let s:toml_file   = expand("<sfile>:h").'/dein.toml'
-let s:toml_file2  = expand("<sfile>:h").'/dein_lazy.toml'
-if dein#load_state(s:dein_dir)
-	call dein#begin(s:dein_dir)
-	call dein#load_toml(s:toml_file)
-	call dein#load_toml(s:toml_file2 , { 'lazy' : 1 })
-	call dein#end()
-	call dein#save_state()
-endif
-
-" 不足プラグインの自動インストール
-if has('vim_starting') && dein#check_install()
-	call dein#install()
-endif
-" }}}
-
-"====================================
-"   <- dein settings
-"------------------------------------
-"   other settings ->
-"====================================
+" dein initialization
+source `=s:vimscripts_dir . '/init_dein.vim'`
 
 "---------------------------------------
-" その他設定
+" Basic settings
 "---------------------------------------
 filetype off
 filetype plugin indent off
@@ -43,17 +14,7 @@ colorscheme desert
 hi Search ctermfg=white
 
 "---------------------------------------
-" some keys, a little change for convenience
-"---------------------------------------
-nnoremap j gj
-nnoremap gj j 
-nnoremap k gk
-nnoremap gk k 
-noremap ; :
-noremap : ;
-
-"---------------------------------------
-" attributes
+" set attributes
 "---------------------------------------
 set number "行番号を表示する
 set title "編集中のファイル名を表示
@@ -104,116 +65,51 @@ inoremap <silent> jj <ESC>
 noremap <Leader><Leader> o<ESC>
 " turn off lighting
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-" next, back for comm mode
+" next, back for command mode
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 " vv.. -> text block 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+" some key change
+nnoremap j gj
+nnoremap gj j 
+nnoremap k gk
+nnoremap gk k 
+noremap ; :
+noremap : ;
 
 "---------------------------------------
 " vimfiler
 "---------------------------------------
-function! s:vimfiler_settings()
-	nnoremap <buffer><expr> v vimfiler#do_switch_action('vsplit')
-endfunction
-
 augroup vimfiler
-	autocmd FileType vimfiler call s:vimfiler_settings()
+    autocmd FileType vimfiler nnoremap <buffer><expr> v vimfiler#do_switch_action('vsplit')
 augroup END
-
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_ignore_pattern = '^\%(.git\|.DS_Store\)$'
 nnoremap <Leader>vb :<C-u>VimFilerBufferDir<CR>
-nnoremap <Leader>vs :<C-u>VimFilerBufferDir -split<CR>
+nnoremap <Leader>ve :<C-u>VimFilerBufferDir -auto-cd -explorer<CR>
 
 "---------------------------------------
 " Denite key mappings
 "---------------------------------------
-noremap [Denite] <Nop>
-nmap <Leader>d [Denite]
-call denite#custom#map('insert',"jj",'<denite:enter_mode:normal>')
-call denite#custom#map('normal'," ",'<Nop>')
-" 現在開いているファイルのディレクトリ下のファイル一覧
-nnoremap [Denite]f :<C-u>DeniteBufferDir -buffer-name=files file_rec<CR>
-" dotfiles
-nnoremap [Denite]d :<C-u>Denite -path=~/Dev/dotfiles -mode=normal file_rec<CR>
-" バッファ一覧
-nnoremap [Denite]b :<C-u>Denite buffer<CR>
-" レジスタ一覧
-nnoremap [Denite]r :<C-u>Denite -mode=normal -buffer-name=register register<CR>
-" ブックマーク(star)一覧,追加
-nnoremap [Denite]ss :<C-u>Denite -mode=normal unite:bookmark<CR>
-nnoremap [Denite]sa :<C-u>UniteBookmarkAdd<CR>
-" 最近使用したファイル一覧
-nnoremap [Denite]m :<C-u>Denite -mode=normal -file_mru<CR>
-" line
-nnoremap [Denite]l :<C-u>Denite line<CR>
-" menu
-nnoremap [Denite]j :<C-u>Denite -mode=normal menu<CR>
-" プロジェクトディレクトリ
-let s:menus = {}
-let s:menus.projects = { 'description' : 'projects' }
-let s:menus.projects.command_candidates = [['VimFiler ~/Dev/Projects/', 'VimFiler /Users/sai708th/Dev/Projects -split'],['VimFiler OldProjects', 'VimFiler /Users/sai708th/OldProjects -split']]
-let s:menus.xcode = { 'description' : 'xcode' }
-let s:menus.xcode.command_candidates = [['build', 'new +:Xbuild'],['add source', 'call AddSourceToXcode()']]
-let s:menus.qfixhowm = { 'description' : 'QFixHowm' }
-let s:menus.qfixhowm.command_candidates = [
-\	['diaries', 'normal g,l'],
-\	['all files', 'normal g,rA'],
-\	['new diary', 'normal g, '],
-\	['new memo', 'normal g,c']]
-call denite#custom#var('menu', 'menus', s:menus)
-
-"---------------------------------------
-" unite settings
-"---------------------------------------
-
+source `=s:vimscripts_dir . '/init_denite.vim'`
 
 "---------------------------------------
 " 分割等設定 key mapping s
 "---------------------------------------
-nnoremap s <Nop>
-" cursor move
-nnoremap sh <C-w>h  
-nnoremap sj <C-w>j  
-nnoremap sl <C-w>l  
-nnoremap sk <C-w>k  
-" window move
-nnoremap sH <C-w>H  
-nnoremap sJ <C-w>J  
-nnoremap sL <C-w>L  
-nnoremap sK <C-w>K  
-" tab move
-nnoremap sn gt
-nnoremap sp gT
-nnoremap sr <C-w>r
-nnoremap sw <C-w>w
-nnoremap so <C-w>_<C-w>\|
-nnoremap sO <C-w>=
-nnoremap sN :<C-u>bn<CR>
-nnoremap sP :<C-u>bp<CR>
-nnoremap st :<C-u>tabnew<CR>
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+source `=s:vimscripts_dir . '/init_separation.vim'`
 
 "---------------------------------------
-" Key Mapping g
+" Key Mapping g for vimgrep 
 "---------------------------------------
 noremap [gMap] <Nop>
 nmap <Leader>g [gMap]
 nnoremap [gMap]n :cnext<CR>
 nnoremap [gMap]p :cprevious<CR>
 
+"----------------------------------
+" filetype reset
+"----------------------------------
 filetype plugin indent on
 
