@@ -108,6 +108,11 @@ nmap <Leader>g [gMap]
 nnoremap [gMap]n :cnext<CR>
 nnoremap [gMap]p :cprevious<CR>
 
+"--------------------------------------
+" other source
+"--------------------------------------
+source `=s:vimscripts_dir . '/init_swift.vim'`
+
 "----------------------------------
 " filetype reset
 "----------------------------------
