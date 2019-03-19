@@ -1,0 +1,9 @@
+コミットの上書き
+git --amend -m "comment"
+
+ブランチを切る（作成）
+git checkout 29d1c48 -b feature/hoge
+
+fast-forward (from-branchをcheckoutしてから)
+git merge to-branch --ff
+
