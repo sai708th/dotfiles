@@ -4,6 +4,11 @@ git --amend -m "comment"
 ブランチを切る（作成）
 git checkout 29d1c48 -b feature/hoge
 
+ブランチを削除
+git branch -d feature/hoge
+
 fast-forward (from-branchをcheckoutしてから)
 git merge to-branch --ff
 
+commit取り消し、ファイル消さない
+git reset --soft HEAD^
