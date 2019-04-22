@@ -44,7 +44,10 @@ set listchars=tab:»-,trail:-,nbsp:%
 " function key mapping
 "---------------------------------------
 " tatewari
-nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
+" nnoremap <F1> :<C-u>set noscb<CR>:vsp<CR><C-d><C-d>:set scb<CR><C-w>w:set scb<CR><C-w>H
+" vimgrep next prev
+nnoremap <F1> :cnext<CR>
+nnoremap <F2> :cprevious<CR>
 " reload 
 nnoremap <F3> :call neosnippet#variables#set_snippets({})<cr>
 nnoremap <F4> :<C-u>source $MYINITVIM<CR>
@@ -99,14 +102,6 @@ source `=s:vimscripts_dir . '/init_denite.vim'`
 " 分割等設定 key mapping s
 "---------------------------------------
 source `=s:vimscripts_dir . '/init_separation.vim'`
-
-"---------------------------------------
-" Key Mapping g for vimgrep 
-"---------------------------------------
-noremap [gMap] <Nop>
-nmap <Leader>g [gMap]
-nnoremap [gMap]n :cnext<CR>
-nnoremap [gMap]p :cprevious<CR>
 
 "--------------------------------------
 " other source
