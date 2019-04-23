@@ -1,5 +1,5 @@
 コミットの上書き
-git --amend -m "comment"
+git commit --amend 
 
 ブランチを切る（作成）
 git checkout 29d1c48 -b feature/hoge
