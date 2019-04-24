@@ -12,3 +12,9 @@ git merge to-branch --ff
 
 commit取り消し、ファイル消さない
 git reset --soft HEAD^
+
+差分の生じたファイル名取得
+git diff --name-only <commit id 1> <commit id 2>
+
+差分出力
+git diff <commit id 1> <commit id 2> <filename> (> hoge.txt)
