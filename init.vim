@@ -90,8 +90,8 @@ augroup vimfiler
 augroup END
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_ignore_pattern = '^\%(.git\|.DS_Store\)$'
-nnoremap <Leader>vb :<C-u>VimFilerBufferDir<CR>
-nnoremap <Leader>ve :<C-u>VimFilerBufferDir -auto-cd -explorer<CR>
+nnoremap <Leader>vb :<C-u>VimFilerBufferDir -auto-cd <CR>
+nnoremap <Leader>ve :<C-u>VimFilerBufferDir -explorer<CR>
 
 "---------------------------------------
 " Denite key mappings
