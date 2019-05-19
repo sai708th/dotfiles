@@ -74,6 +74,8 @@ cnoremap <C-n> <Down>
 " vv.. -> text block 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+" wrap <--> no wrap
+nnoremap - :set invwrap<CR>
 " some key change
 nnoremap j gj
 nnoremap gj j 
