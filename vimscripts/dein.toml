@@ -55,10 +55,6 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-# smartchr
-[[plugins]]
-repo = 'kana/vim-smartchr'
-
 #-------------------
 # swift
 #-------------------

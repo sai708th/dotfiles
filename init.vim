@@ -84,12 +84,6 @@ nnoremap gk k
 noremap ; :
 noremap : ;
 
-"smartchr
-inoremap <expr> = smartchr#loop(' = ', ' == ', '=')
-inoremap <expr> <S-=> smartchr#loop(' + ', '+')
-inoremap <expr> - smartchr#loop(' - ', '-')
-inoremap <expr> , smartchr#loop(', ', ',')
-
 "---------------------------------------
 " vimfiler
 "---------------------------------------
