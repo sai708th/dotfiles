@@ -39,8 +39,6 @@ set synmaxcol=200
 set noswapfile
 set clipboard=unnamed
 set listchars=tab:»-,trail:-,nbsp:%
-set fileformats=unix,dos,mac
-set fileencodings=utf-8,sjis
 
 "---------------------------------------
 " function key mapping
@@ -111,6 +109,7 @@ source `=s:vimscripts_dir . '/init_separation.vim'`
 " other source
 "--------------------------------------
 source `=s:vimscripts_dir . '/init_swift.vim'`
+source `=s:vimscripts_dir . '/ctags.vim'`
 
 "----------------------------------
 " filetype reset
