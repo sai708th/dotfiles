@@ -39,6 +39,8 @@ set synmaxcol=200
 set noswapfile
 set clipboard=unnamed
 set listchars=tab:»-,trail:-,nbsp:%
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
 
 "---------------------------------------
 " function key mapping
