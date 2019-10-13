@@ -149,5 +149,10 @@ $ opam install coq-mathcomp-algebra
 $ opam install coq-mathcomp=character
 ( coq-mathcomp- field, solvable)
 
-
+#--------------------------------
+#  ctags
+#--------------------------------
+see https://qiita.com/aratana_tamutomo/items/59fb4c377863a385e032
+$ cd ~/.ctags.d/
+$ ln -s ~/Dev/dotfiles/configure.ctags configure.ctags
 
