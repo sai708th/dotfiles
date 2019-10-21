@@ -153,6 +153,15 @@ $ opam install coq-mathcomp=character
 #  ctags
 #--------------------------------
 see https://qiita.com/aratana_tamutomo/items/59fb4c377863a385e032
+at any directory 
+ctags -R -f .tags
+
+universal
+$ mkdir ~/.ctgas.d
 $ cd ~/.ctags.d/
 $ ln -s ~/Dev/dotfiles/configure.ctags configure.ctags
+
+ex~
+$ cd ~/
+$ ln -s ~/Dev/dotfiles/configure.ctags .ctags
 
