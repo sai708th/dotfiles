@@ -110,6 +110,7 @@ source `=s:vimscripts_dir . '/init_separation.vim'`
 "--------------------------------------
 source `=s:vimscripts_dir . '/init_swift.vim'`
 source `=s:vimscripts_dir . '/ctags.vim'`
+source `=s:vimscripts_dir . '/tex.vim'`
 
 "----------------------------------
 " filetype reset
