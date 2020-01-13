@@ -36,6 +36,8 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 # java path
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.10`
 
+export PATH=/usr/texbin:$PATH
+
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias mv='mv -i'
 alias cd='(){ cd $1 ; ls }'

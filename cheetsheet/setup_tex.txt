@@ -1,0 +1,7 @@
+$ brew cask install basictex
+$ sudo tlmgr update --self --all
+$ sudo tlmgr paper a4
+$ sudo tlmgr install collection-langjapanese
+$ sudo tlmgr install ptex ptex2pdf uplatex jfontmaps jsclasses japanese-otf
+
+//check zshrc export PATH=/usr/texbin:$PATH 
