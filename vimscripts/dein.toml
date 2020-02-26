@@ -93,8 +93,8 @@ repo = 'kana/vim-submode'
 repo =  'nelstrom/vim-visual-star-search'
 
 # syntax check
-[[plugins]]
-repo = 'scrooloose/syntastic'
+# [[plugins]]
+# repo = 'scrooloose/syntastic'
 
 # deoplete clang
 [[plugins]]
