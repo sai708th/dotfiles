@@ -76,6 +76,7 @@ let g:python3_host_prog = '/path/to/python3'
 $ brew install tree
 $ brew install knqyf263/pet/pet
 $ brew install coreutils 
+$ brew install colordiff
 
 memo:
     '18.5.22

@@ -38,10 +38,20 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 
 export PATH=/usr/texbin:$PATH
 
+# alias
 alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
 alias mv='mv -i'
 alias cd='(){ cd $1 ; ls }'
 alias tree='tree -L 2'
 
+# alias colordiff to diff
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
+
 # OPAM configuration
 ./Users/naoya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+
