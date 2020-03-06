@@ -27,3 +27,6 @@ git tag -a v1.4 -m 'my version 1.4'
 
 軽量タグ
 git tag -a v1.4 
+
+タグのpush
+git push origin --tags
