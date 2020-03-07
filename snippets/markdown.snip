@@ -1,0 +1,95 @@
+snippet     file
+options     head
+    ##   ${1}
+	<a name="${2}"></a>
+	###  ${3}
+	#### variables
+	#### overrides
+	#### methods
+	#### const string
+	#### related classes
+	
+	---
+
+snippet     class
+options     head
+	<a name="${1}"></a>
+	###  ${2}
+	#### variables
+	#### overrides
+	#### methods
+	#### const string
+	#### related classes
+	
+	---
+
+snippet     link
+	* [${1:TARGET}](#${2})
+
+snippet     math
+options     word
+    $${1}$${0}
+
+snippet     mathh
+options     word
+	\\[
+	${0}
+	\\]
+
+snippet     abs
+options     word
+	|${0}|
+
+snippet     fabs
+options     word
+	\left| ${1} \right| ${0}
+
+snippet     inpro
+options     word
+	(${1},${2}) ${0}
+
+snippet     {
+options     word
+	{${1}}${0}
+
+snippet     (
+options     word
+	(${1})${0}
+
+snippet     sub
+options     word
+	${1}\_${2} ${0}
+
+snippet     subb
+options     word
+	${1}\_{${2}} ${0}
+
+snippet     sup
+options     word
+	${1}^${2} ${0}
+
+snippet     supp
+options     word
+	${1}^{${2}} ${0}
+
+snippet     tx
+options     word
+	\text{${1}} ${0}
+
+snippet     frac
+options     word
+	\frac{${1}}{${2}}${0}
+
+snippet     matr
+options     head
+	\left( \begin{array}{rrr}
+	 1 &  2 &  3 \\\
+	 1 &  2 &  3 \\\
+	 1 &  2 &  3
+	\end{array} \right)
+
+snippet     mermaid
+options     head
+	\`\`\`mermaid
+	${0}
+	\`\`\`

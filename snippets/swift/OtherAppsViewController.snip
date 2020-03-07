@@ -1,0 +1,33 @@
+snippet     OtherAppsViewController
+options     head
+	/* needs external storyboard file */
+	class OtherAppsViewController:UITableViewController{
+	    let urls = ["itms-apps://itunes.apple.com/jp/app/pikopikoufo/id893532935?mt=8",
+	                "itms-apps://itunes.apple.com/jp/app/hua-xiangwo-jian-dannitsunagerareru/id1078666497?mt=8",
+	                "itms-apps://itunes.apple.com/jp/app/nazopuyo-maker/id1142721936?mt=8",
+	                "http://polyester.96.lt/index.php?iPhoneApp"]
+	    
+	    override func viewWillAppear(animated: Bool) {
+	        super.viewWillAppear(animated)
+	        self.navigationController?.navigationBarHidden = false
+	    }
+	    
+	    func done(){
+	        dismissViewControllerAnimated(true, completion: nil)
+	    }
+	    
+	    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+	        tableView.cellForRowAtIndexPath(indexPath)?.selected = false
+	        let idx = indexPath.row
+	        switch(idx){
+	        case 0..<4:
+	            let url = NSURL(string: urls[idx])
+	            UIApplication.sharedApplication().openURL(url!)
+	        default:
+	            break
+	        }
+	    }
+	}
+
+
+

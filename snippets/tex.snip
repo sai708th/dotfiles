@@ -1,0 +1,45 @@
+snippet     frame
+options     head
+	\\begin{frame}\\frametitle{${1}}
+		${0}
+	\\end{frame}
+
+snippet     block
+options     head
+	\\begin{block}{${1}}
+		${0}
+	\\end{block}
+
+snippet     m
+	$${1}$
+
+snippet     mm
+options     head
+	\[
+		${1}
+	\]
+
+snippet     item
+options     head
+	\\begin{itemize}
+		${0}
+	\\end{itemize}
+
+snippet     itembox
+options     head
+	begin{itembox}
+	end{itembox}
+
+snippet     table
+options     head
+	\begin{table}[htb]
+	    \begin{tabular}{|l|c|r||r|} \hline
+	        メニュー & サイズ & 値段 & カロリー \\\\ \hline \hline
+	        牛丼 & 並盛 & 500円 & 600 kcal \\\\
+	        牛丼 & 大盛 & 1,000円 & 800 kcal \\\\
+	        牛丼 & 特盛 & 1,500円 & 1,000 kcal \\\\ \hline
+	        牛皿 & 並盛 & 300円 & 250 kcal \\\\
+	        牛皿 & 大盛 & 700円 & 300 kcal \\\\
+	        牛皿 & 特盛 & 1,000円 & 350 kcal \\\\ \hline
+	    \end{tabular}
+	\end{table}

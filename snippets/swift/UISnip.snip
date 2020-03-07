@@ -1,0 +1,333 @@
+
+#=========================
+# UIObjects
+#=========================
+
+# UIViewController
+snippet     viewwa
+options     head
+	override func viewWillAppear(_ animated: Bool) {
+	    self.navigationController?.isNavigationBarHidden = true
+	    super.viewWillAppear(animated)
+	    ${0}
+	}
+
+snippet     viewwd
+options     head
+	override func viewWillDisappear(_ animated: Bool) {
+	    super.viewWillDisappear(animated)
+	    self.navigationController?.isNavigationBarHidden = true
+	    ${0}
+	}
+
+snippet     viewda
+options     head
+	override func viewDidAppear(_ animated: Bool) {
+	    super.viewDidAppear(animated)
+	    ${0}
+	}
+
+snippet     viewdl
+options     head
+	override func viewDidLoad() {
+	    super.viewDidLoad()
+	    ${0}
+	}
+
+snippet     prepareForSegue
+options     head
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	    let segue_id = segue.identifier
+	    if segue_id == "${1:#:HogeHoge}" {
+	        let vc = segue.destinationViewController as! ${2:#:FooViewController}
+	    }
+	}
+
+snippet     shouldPerformSegueWithIdentifier
+options     head
+	override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+	    let btn = sender as! UIButton
+	    if btn.tag == -1 {
+	        return true
+	    }
+	    return true
+	}
+
+snippet     uivdraw
+options     head
+	override func draw(_ rect: CGRect) {
+	    ${0}
+	}
+
+snippet     hittest
+options     head
+	override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+	    let hitView = super.hitTest(point, with: event)
+	    if self == hitView{
+	        return nil
+	    }
+	    return hitView
+	}
+
+snippet     TouchesSnip
+options     head
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+	    for aTouch in touches{
+	        let p = aTouch.location(in: aTouch.view)
+	    }
+	}
+	
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+	    // moved process
+	}
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+	    for aTouch in touches{
+	    }
+	}
+	
+	override func touchesCancelled(_ touches: Set<UITouch>?, with event: UIEvent?) {
+	    if let t = touches{
+	        for aTouch in t{
+	        }
+	    }
+	}
+
+snippet     modal
+options     head
+	let vc = UIViewController()
+	modalPresentationStyle = .pageSheet
+	present(picker, animated: true, completion: nil)
+
+snippet     vcpresent
+options     head
+	let vc = ${1:UIViewController()}
+	//self.modalPresentationStyle = .pageSheet
+	self.present(vc, animated: true, completion: nil)
+
+snippet     popover
+options     head
+	//adopt delegate UIPopoverPresentationControllerDelegate
+	class MyViewController : UIViewController ,UIPopoverPresentationControllerDelegate {
+	}
+    //delegate for option popover
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        updateImage()
+    }
+	func presentPopover(sender: UIBarButtonItem) {
+	    let vc = OptionViewController(delegate: self)
+	    vc.modalPresentationStyle = .popover
+	    vc.preferredContentSize = CGSize(width: 200, height: 360)
+
+	    let view = sender.value(forKey: "view") as! UIView
+	    if let pr = vc.popoverPresentationController {
+	        pr.permittedArrowDirections = .down //ex: .any, [.up, .down]
+	        pr.sourceView = view
+	        pr.sourceRect = view.bounds
+	        pr.delegate = self
+	    }
+	    present(vc, animated: true, completion: nil)
+	}
+
+
+# UIView
+snippet     constraints
+options     head
+	tmpview.translatesAutoresizingMaskIntoConstraints = false
+	tmpview.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+	tmpview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10.0).isActive = true
+	tmpview.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+	tmpview.heightAnchor.constraint(equalTo: tmpview.widthAnchor, multiplier: 50/320.0).isActive = true
+	//centerXAnchor
+
+snippet     recttest
+options     head
+	override func draw(_ rect: CGRect) {
+	    let context = UIGraphicsGetCurrentContext()!
+	    context.setLineWidth(2)
+	    context.setStrokeColor(UIColor.red.cgColor)
+	    let pt0 = rect.origin
+	    let pt1 = rect.origin + CGPoint(x: 0, y: rect.height)
+	    let pt2 = rect.origin + CGPoint(x: rect.width, y: rect.height)
+	    let pt3 = rect.origin + CGPoint(x: rect.width, y: 0)
+	    context.move(to: pt0)
+	    context.addLine(to: pt2)
+	    context.strokePath()
+	    context.move(to: pt1)
+	    context.addLine(to: pt3)
+	    context.strokePath()
+	}
+
+# UIColor
+snippet     uic
+options     head
+	UIColor.${1:clear}
+
+snippet     uicrgb
+	UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+
+# UIImageView
+snippet     uiim
+options     head
+	let image = UIImage(named: "${1:#:hoge}.${2:png}")
+	let imgView = UIImageView(image: image)
+
+# UIImage Trimming
+snippet     uiimtrm
+options     head
+	let ${1:#:image} = UIImage(named: ${2:#:"image.png"})!
+	let trimArea = CGRectZero
+	let srcImageRef = $1.CGImage
+	let trimmedImageRef = CGImageCreateWithImageInRect(srcImageRef, trimArea)!
+	let trimmedImage = UIImage(CGImage: trimmedImageRef)
+
+# UILabel
+snippet     uil
+options     head
+	let fr${1} = ${2}
+	let lbl$1 = UILabel(frame: fr$1)
+	lbl$1.text = ${3}
+	lbl$1.font = UIFont(name: "Helvetica", size: 40)
+	lbl$1.textColor = UIColor.black
+	lbl$1.backgroundColor = UIColor.white
+	lbl$1.numberOfLines = 1
+	lbl$1.tag = 0
+	lbl$1.textAlignment = .Center
+	lbl$1.center = CGPointZero
+	${4}.addSubview(lbl$1)
+	${0}
+
+# UIButton
+snippet     uib
+options     head
+	let rect${1} = CGRect.zero
+	let btn$1 = UIButton(frame: rect$1)
+	let sel$1 = #selector(${2}) // called method must be declared as @objc
+	btn$1.setTitle("hoge", for: .normal)
+	btn$1.setTitleColor(colorText, for: .normal)
+	btn$1.setTitleColor(UIColor.lightGray, for: .highlighted)
+	btn$1.center = CGPoint.zero
+	btn$1.tag = 0
+	btn$1.addTarget(self, action: sel$1, for: .touchUpInside)
+	${3}.addSubview(btn$1)
+	${0}
+
+# UIStack
+snippet     uistack
+options     head
+	let stackView${1}   = UIStackView()
+	stackView$1.axis  = UILayoutConstraintAxis.vertical
+	stackView$1.distribution  = UIStackViewDistribution.equalSpacing
+	stackView$1.alignment = UIStackViewAlignment.center
+	stackView$1.spacing   = 16.0
+	${2}.addSubview(stackView$1)
+
+# UIActivityIndicatorView
+snippet     uiai
+options     head
+	let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+	indicator.center = CGRectZero
+	indicator.startAnimating()
+	${1}.addSubview(indicator)
+	${0}
+
+# UIAlertController
+snippet     uialert
+options     head
+	let message = "hello"
+	let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+	let cancel = UIAlertAction(title: "BACK", style: .cancel, handler: nil)
+	let yes = UIAlertAction(title: "YES", style: .default){
+	    _ in
+	        //alert.dismissViewControllerAnimated(true, completion: nil)
+	        //self.navigationController?.popViewControllerAnimated(true)
+	}
+	alert.addAction(cancel)
+	alert.addAction(yes)
+	self.present(alert, animated: true, completion: nil)
+
+snippet     uiaction
+options     head
+	let ac = UIAlertController(title: "メニュー", message: nil, preferredStyle: .actionSheet)
+	let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+	let title = UIAlertAction(title: "title", style: .default, handler: { _ in /* some process */})
+	let dest = UIAlertAction(title: "clear", style: .destructive, handler: {_ in
+	    /* destructive process */
+	})
+	ac.addAction(cancel)
+	ac.addAction(title)
+	ac.addAction(dest)
+	present(ac, animated: true, completion: nil)
+
+# UIGraphics Context
+snippet     uigra
+options     head
+	let size = CGSize.zero
+	UIGraphicsBeginImageContext(size)
+	let context = UIGraphicsGetCurrentContext()
+
+	CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
+	CGContextFillRect(context, CGRectMake(0,0,size.width,size.height))
+
+	let imagename = "hogehoge.png"
+	let image =  UIImage(named: imagename)
+	if let img = image{
+	    let rect = CGRectZero
+	    img.drawInRect(rect)
+	}
+	
+	//let dst = UIGraphicsGetImageFromCurrentImageContext()
+	UIGraphicsEndImageContext()
+
+# UIGestureRecognizer
+snippet     uigr
+abbr        UIGestureRecognizer
+alias       uigr
+options     head
+	let recognizer = UI${1:Pan}GestureRecognizer(target: self, action: "${2}")
+	${3:uiview}.addGestureRecognizer(recognizer)
+
+#=========================
+# CG~
+#=========================
+
+#CGRect
+snippet     cgr
+options     word
+	CGRect(x: ${1}, y: ${2}, width: ${3}, height: ${4})${0}
+
+snippet     cgrr
+options     head
+	let x${1} = ${2}
+	let y$1 = ${3}
+	let w$1 = ${4}
+	let h$1 = ${5}
+	let rect = CGRect(x: x$1, y: y$1, width: w$1, height: h$1)${0}
+	${0}
+
+#CGPoint
+snippet     cgp
+options     word
+	CGPoint(x: ${1}, y: ${2})
+
+#CGSize
+snippet     cgs
+options     word
+	CGSize(width: ${1}, height: ${2})
+
+#========================
+# animate
+#========================
+snippet     animate
+options     head
+	UIView.animate(withDuration: 1.0, delay: 1.0, options: [.curveEaseIn], animations: {
+	    self.blueView.alpha = 1.0
+	}, completion: nil)
+	UIView.animate(withDuration: ${1}, delay: ${2}, usingSpringWithDamping: ${3}, initialSpringVelocity: ${4}, options: [], animations: ${5}, completion: ${6:nil})
+
+
+
+

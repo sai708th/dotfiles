@@ -1,0 +1,23 @@
+snippet     NADView
+abbr        NADView
+options     head
+    //nend ad setting
+    //don't forget willDisappear  nadView.pause()
+    let fr${1} = CGRectMake(${2}, ${3}, 320, 50)
+    nadView$1 = NADView(frame: fr$1)
+    if let view = nadView$1 {
+        view.setNendID(kNend_${2}, spotID: kNend_${3})
+        view.isOutputLog = false
+        view.delegate = self
+        view.load()
+        ${4}.addSubview(view)
+    }
+    //override func viewWillAppear(animated: Bool) {
+    //    super.viewWillAppear(animated)
+    //    nadView.resume()
+    //}
+    //
+    //override func viewWillDisappear(animated: Bool) {
+    //    super.viewWillAppear(animated)
+    //    nadView.pause()
+    //}

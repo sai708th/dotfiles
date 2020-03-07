@@ -1,0 +1,42 @@
+snippet     QDRoot
+options     head
+	let root = QRootElement()!
+	root.title = "設定"
+	root.grouped = true
+
+snippet     QDController
+options     head
+	//optional value
+	let qdc = QuickDialogController.controllerWithNavigation(forRoot: root)
+
+snippet     QDSection
+options     head
+	let sec${1} = QSection(title: ${2})!
+	root.addSection(sec$1)
+	//let elm$1 = QBooleanElement(title: "hoge", boolValue: true)!
+	//sec$1.addElement(elm$1)
+
+snippet     QDButton
+options     head
+	let btn${1} = QButtonElement(title: ${2})!
+	btn$1.onSelected = { [unowned self] in
+	}
+	sec${3}.addElement(btn$1)
+
+snippet     QDLabel
+options     head
+	let lbl${1} = QLabelElement(title: ${2}, value: nil)!
+	//lbl$1.accessoryType = .disclosureIndicator
+	lbl$1.onSelected = { [unowned self] in
+	}
+	sec${3}.addElement(lbl$1)
+
+snippet     QDText
+options     head
+	let text${1} = QTextElement(text: ${2})
+	sec${3}.addElement(text$1)
+
+snippet     QDBoolean
+options     head
+	//let elm${1} = QBooleanElement(title: ${2}, boolValue: true)!
+	//sec${3}.addElement(elm$1)

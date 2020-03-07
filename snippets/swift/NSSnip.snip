@@ -1,0 +1,46 @@
+# NSUserDefaults
+snippet     ud
+options     head
+	let ud = UserDefaults.standard
+	let first = ud.bool("${1:#:hoge}_HasInitialized")
+	if !first {
+	    ud.set(true, forKey: "$1_HasInitialized")
+	}
+	let tmp = ud.${2:integer}("key")
+	ud.set(${2}, forKey: "key")
+
+# NSNotification
+snippet     ntp
+options     head
+	let dic = ["number": tag, "kind": subtag]
+	let name = Notification.Name(rawValue: "NumberKey")
+	let notification = Notification(name: name, object: nil, userInfo: dic)
+	NotificationCenter.default.post(notification)
+
+snippet     nto
+options     head
+	let sel =  #selector(ViewController.pushedButton(sender:))
+	let name = NSNotification.Name(rawValue: "hoge")
+	NotificationCenter.default.addObserver(self, selector: sel, name: name, object: nil)
+
+# NSTimer
+snippet     timer
+options     word
+	let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){ sender in
+	}
+	let sel = #select()
+	let _ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: sel, userInfo: nil, repeats: true)
+
+#NSAttributedString
+snippet     nsattr
+options     head
+	let attrs = [
+	    NSStrokeWidthAttributeName:NSNumber(integer:-2),
+	    NSStrokeColorAttributeName:UIColor.whiteColor()]
+	let attr = NSAttributedString(string: ${1}, attributes: attrs)
+
+snippet     date
+options     head
+	let now = Date()
+	//ud.set(now, forKey: "lastTweet")
+
