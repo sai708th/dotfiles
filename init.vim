@@ -85,6 +85,12 @@ noremap ; :
 noremap : ;
 
 "---------------------------------------
+" new command
+"---------------------------------------
+"swift vim
+command! -nargs=1 Vimswift vim /<args>/**/*.swift 
+
+"---------------------------------------
 " vimfiler
 "---------------------------------------
 augroup vimfiler
