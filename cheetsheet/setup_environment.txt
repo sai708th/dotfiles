@@ -1,3 +1,5 @@
+= 環境構築メモ
+[2021-01-29 22:34]
 環境構築メモ
 
 #---------------------------------------
@@ -6,7 +8,7 @@
 
 # Setup list
 zsh
-tux
+tmux
 nvim
 homebrew
 tree
@@ -68,9 +70,10 @@ $ nvim
 7. Setup denite (need python3)
 $ brew install python3
 $ pip3 install neovim
+$ pip3 install pynvim
 rem. this is NOT neovim, but support soft.
-write below code at init.vim, restart nvim.
-let g:python3_host_prog = '/path/to/python3'
+in nvim, :UpdateRemotePlugins -> nanka ugoku youni naru.
+
 
 100. Install other tools
 $ brew install tree
