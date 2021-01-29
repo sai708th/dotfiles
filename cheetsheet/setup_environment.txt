@@ -87,36 +87,6 @@ memo:
         (pointer being freed was not allocated)
         tar.gz file of neovim from official repository was successfully launched.
 
-#---------------------------------------
-# Part 2 gitbook
-#---------------------------------------
-
-1. Install nodebrew
-$ brew install nodebrew
-$ nodebrew -v
-
-2. Install nodejs
-$ mkdir ~/.nodebrew
-$ mkdir ~/.nodebrew/src
-$ nodebrew install-binary latest
-$ nodebrew use stable
-
-3. Setting PATH
-bashrc, zshrc wo kakunin.
-check below commands to be successed
-$ node -v
-$ npm -v
-
-4. Install gitbook
-$ npm install gitbook-cli -g
-
-$ mkdir test
-$ cd test
-$ gitbook init
-
-5. Install mermaid for gitbook
-$ npm install gitbook-plugin-mermaid -g
-
 #--------------------------------------------
 # Haskell
 #--------------------------------------------
@@ -132,26 +102,6 @@ $ stack build
 $ brew install cabal-install
 $ cabal update
 $ cabal install parsec
-
-#--------------------------------------------
-# Coq
-#--------------------------------------------
-nvim ha coquille wo tsukau beshi
-need: coq install
-1. opam install
-$ brew install opam
-$ opam init
-$ eval `opam config env`
-
-2. coq install
-url: https://staff.aist.go.jp/reynald.affeldt/ssrcoq/install.html
-$ opam repo add coq-released https://coq.inria.fr/opam/released
-$ opam install coqide.8.8.0
-$ opam install coq-mathcomp-ssreflect.1.7.0
-$ opam install coq-mathcomp-algebra
-( coq-mathcomp-fingroup)
-$ opam install coq-mathcomp=character
-( coq-mathcomp- field, solvable)
 
 #--------------------------------
 #  ctags
