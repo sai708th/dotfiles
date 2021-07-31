@@ -53,10 +53,10 @@ repo = 'vim-jp/vimdoc-ja'
 
 # git in vim
 [[plugins]]
-repo = 'tpope/vim-fugitive'
+repo = 'cohama/agit.vim'
 
 [[plugins]]
-repo = "airblade/vim-gitgutter"
+repo = 'airblade/vim-gitgutter'
 
 #-------------------
 # swift
