@@ -7,7 +7,7 @@ source `=s:vimscripts_dir . '/init_dein.vim'`
 " Basic settings
 "---------------------------------------
 filetype off
-filetype plugin indent off
+"filetype plugin indent off
 autocmd FileType * set formatoptions-=ro
 syntax enable
 colorscheme desert
@@ -39,6 +39,7 @@ set synmaxcol=200
 set noswapfile
 set clipboard=unnamed
 set listchars=tab:»-,trail:-,nbsp:%
+set signcolumn=yes
 
 "---------------------------------------
 " function key mapping
@@ -117,6 +118,7 @@ source `=s:vimscripts_dir . '/init_separation.vim'`
 source `=s:vimscripts_dir . '/init_swift.vim'`
 source `=s:vimscripts_dir . '/ctags.vim'`
 source `=s:vimscripts_dir . '/tex.vim'`
+source `=s:vimscripts_dir . '/highlight.vim'`
 
 "----------------------------------
 " filetype reset

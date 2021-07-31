@@ -1,0 +1,134 @@
+#-------------------------
+#  Index
+#     Property Wrapper
+#     Alignment
+#-------------------------
+
+#-------------------------
+#  Property Wrapper
+#-------------------------
+snippet     st
+options     word
+	@State
+
+snippet     bi
+options     word
+	@Binding
+
+snippet     env
+options     word
+	@Environment
+
+snippet     envob
+options     word
+	@EnvironmentObject
+
+snippet     obob
+options     word
+	@ObservedObject
+
+#-------------------------
+#  Stack
+#-------------------------
+snippet     hstack
+options     head
+	HStack(alignment: .center, spacing: 30) {
+		${0}
+	}
+
+snippet     vstack
+options     head
+	VStack(alignment: .center, spacing: 30) {
+		${0}
+	}
+
+
+#-------------------------
+#  Alignment
+#-------------------------
+snippet     geor
+options     head
+	return GeometryReader { geometry in 
+		${0}
+	}
+
+snippet     frame
+options     word
+	.frame(width: ${1}, height: ${2}) 
+
+snippet     framea
+options     word
+	//alignment: center, leading, trailing, top, bottom, topLeading, topTrailing, bottomLeading, bottomTrailing
+	.frame(width: ${1}, height: ${2}, alignment: .center) 
+
+#-------------------------
+#  Gradient
+#-------------------------
+snippet     grad
+options     head
+	//let grad = Gradient(colors: [Color.white, Color.blue])
+	//RadialGradient(gradient: grad, 
+	//			   center: .center,
+	//			   startRadius: 1,
+	//			   endRadius: geometry.size.width)
+	//LinearGradient(gradient:
+	//				Gradient(colors: [Color.yellow, Color.red]),
+	//		   startPoint:.bottomLeading,
+	//		   endPoint: .topTrailing)
+	//RadialGradient(gradient:
+	//				Gradient(colors: [Color.white,   Color.blue]),
+	//			   center: .center,
+	//			   startRadius: 1,
+	//			   endRadius: geometry.size.width)
+	//	.mask(Circle().fill(Color.black)
+	//	.frame(width: side, height: side, alignment: .center))
+	//	.animation(.easeIn(duration: 0.16))
+
+#-------------------------
+#  Others
+#-------------------------
+snippet     mask
+options     head
+	.mask(Circle().fill(Color.black)
+	    .frame(width: side, height: side, alignment: .center))
+	    .animation(.easeIn(duration: 0.16))
+
+
+snippet     shape
+options     head
+	struct Shape : Shape {
+		func path(in rect: CGRect) -> Path {
+			Path { path in 
+				${0}
+			}
+		}
+	}
+
+snippet     blend
+options     word
+	.blendMode(.difference)
+	//normal, multiply <-> screen, overlay, darken, lighten
+	//colorDodge <-> colorBurn, softLight, hardLight, difference
+	//exclusion, hue, saturation, color, luminosity
+
+
+snippet     font
+options     word
+	//Helvetica, 
+	//HiraginoSans-W3
+	.font(.custom("Helvetica", size: 100))
+
+snippet     prev
+options     head
+	ForEach(["iPhone SE (1st generation)","iPhone 6s", "iPhone 6s Plus", "iPhone XS Max", "iPhone X"], id: \.self) { deviceName in
+		EmptyView()
+			.sheet(isPresented: $isShowing, content: {
+				RuleView()
+			})
+			.previewDevice(PreviewDevice(rawValue: deviceName))
+			.previewDisplayName(deviceName)
+	}
+
+
+
+
