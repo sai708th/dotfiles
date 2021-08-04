@@ -7,7 +7,7 @@ source `=s:vimscripts_dir . '/init_dein.vim'`
 " Basic settings
 "---------------------------------------
 filetype off
-"filetype plugin indent off
+filetype plugin indent off
 autocmd FileType * set formatoptions-=ro
 syntax enable
 colorscheme desert
@@ -111,6 +111,11 @@ source `=s:vimscripts_dir . '/init_denite.vim'`
 " 分割等設定 key mapping s
 "---------------------------------------
 source `=s:vimscripts_dir . '/init_separation.vim'`
+
+"---------------------------------------
+" Cheatsheet
+"---------------------------------------
+let g:cheatsheet#cheat_file = $HOME_DOTFILES . '/cheatsheet/index.txt'
 
 "--------------------------------------
 " other source
