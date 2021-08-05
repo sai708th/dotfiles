@@ -91,6 +91,8 @@ nnoremap j gj
 nnoremap gj j 
 nnoremap k gk
 nnoremap gk k 
+nnoremap gh gT
+nnoremap gl gt
 noremap ; :
 noremap : ;
 

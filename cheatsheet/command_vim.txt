@@ -1,6 +1,6 @@
-------------------
+----------------------------------------------------------------------------
   Denite = sp d
-------------------
+----------------------------------------------------------------------------
 <Leader>dd : dotfiles
 <Leader>db : buffer
 <Leader>df : file_old //not work
@@ -8,26 +8,50 @@
 <Leader>dr : register //not use
 
 
-------------------
+----------------------------------------------------------------------------
   func
-------------------
+----------------------------------------------------------------------------
 <F1> : vimgrep back        | <F5> : all close
 <F2> : vimgrep next        | <F6> : close
 <F3> : neosnippet reload   | <F7> : open
 <F4> : init.vim reload     | <F8> : all open
 
-------------------
+----------------------------------------------------------------------------
   sp v
-------------------
+----------------------------------------------------------------------------
 <Leader>vb : oepn vimfiler
 <Leader>ve : oepn left vimfiler
 
 
-------------------
+----------------------------------------------------------------------------
   s
-------------------
-sn, sp
+----------------------------------------------------------------------------
+sn, sp          //gl, gh wo tsukae
 sh, sj, sk ,sl
+
+
+----------------------------------------------------------------------------
+  Agit commnad
+----------------------------------------------------------------------------
+J      <Plug>(agit-scrolldown-stat)    | cb     <Plug>(agit-git-checkout-b)            
+K      <Plug>(agit-scrollup-stat)      | D      <Plug>(agit-git-branch-d)                  
+<C-j>  <Plug>(agit-scrolldown-diff)    | rs     <Plug>(agit-git-reset-soft)            
+<C-k>  <Plug>(agit-scrollup-diff)      | rm     <Plug>(agit-git-reset)            
+u      <PLug>(agit-reload)             | rh     <Plug>(agit-git-reset-hard)            
+yh     <Plug>(agit-yank-hash)          | rb     <Plug>(agit-git-rebase)            
+<C-g>  <Plug>(agit-print-commitmsg)    | ri     <Plug>(agit-git-rebase-i)            
+q      <Plug>(agit-exit)               | di     <Plug>(agit-diff)            
+C      <Plug>(agit-git-checkout)       | dl     <Plug>(agit-diff-with-local)            
+
+
+
+
+
+
+
+
+
+
 
 
 
