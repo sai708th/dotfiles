@@ -42,6 +42,15 @@ set listchars=tab:»-,trail:-,nbsp:%
 set signcolumn=yes
 
 "---------------------------------------
+"  Color Scheme
+"---------------------------------------
+highlight DiffAdd    ctermfg=white ctermbg=darkblue
+highlight DiffDelete ctermfg=brown ctermbg=0
+highlight DiffChange ctermfg=gray  ctermbg=brown
+highlight DiffText   ctermfg=white ctermbg=brown
+
+
+"---------------------------------------
 " function key mapping
 "---------------------------------------
 " tatewari
