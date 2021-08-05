@@ -91,10 +91,16 @@ nnoremap j gj
 nnoremap gj j 
 nnoremap k gk
 nnoremap gk k 
-nnoremap gh gT
-nnoremap gl gt
 noremap ; :
 noremap : ;
+
+"---------------------------------------
+" tab open close
+"---------------------------------------
+nnoremap <silent> <Leader>to :<C-u>tabedit<cr>
+nnoremap <silent> <Leader>tc :<C-u>tabclose<cr>
+nnoremap <silent> <Leader>th gT
+nnoremap <silent> <Leader>tl gt
 
 "---------------------------------------
 " new command
