@@ -134,14 +134,21 @@ command! -nargs=1 Vimswift vim /<args>/**/*.swift
 "--------------------------------------
 " 9. external source
 "--------------------------------------
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 let s:vimscripts_dir = $HOME_DOTFILES . '/vimscripts'
 source `=s:vimscripts_dir . '/ctags.vim'`
 source `=s:vimscripts_dir . '/tex.vim'`
-source `=s:vimscripts_dir . '/init_dein.vim'`   " dein initialization
+source `=s:vimscripts_dir . '/plug.vim'`
 source `=s:vimscripts_dir . '/init_denite.vim'`
 source `=s:vimscripts_dir . '/init_swift.vim'`
-source `=s:vimscripts_dir . '/init_gitgutter.vim'`
+"source `=s:vimscripts_dir . '/init_gitgutter.vim'`
 source `=s:vimscripts_dir . '/init_vimfiler.vim'`
+source `=s:vimscripts_dir . '/init_neosnippet.vim'`
 source `=s:vimscripts_dir . '/init_separation.vim'` " 分割等の設定 use the plugin 'submode'
 source `=s:vimscripts_dir . '/init_others.vim'` 
 
