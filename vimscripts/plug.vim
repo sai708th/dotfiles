@@ -21,6 +21,9 @@ call plug#begin()
     " syntax
     Plug 'apple/swift'
     Plug 'keith/swift.vim' 
+
+    " autocomplete
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "#-------------------

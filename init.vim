@@ -146,12 +146,14 @@ source `=s:vimscripts_dir . '/tex.vim'`
 source `=s:vimscripts_dir . '/plug.vim'`
 source `=s:vimscripts_dir . '/init_denite.vim'`
 source `=s:vimscripts_dir . '/init_swift.vim'`
+source `=s:vimscripts_dir . '/init_coc.vim'`
 "source `=s:vimscripts_dir . '/init_gitgutter.vim'`
 source `=s:vimscripts_dir . '/init_vimfiler.vim'`
 source `=s:vimscripts_dir . '/init_neosnippet.vim'`
 source `=s:vimscripts_dir . '/init_separation.vim'` " 分割等の設定 use the plugin 'submode'
 source `=s:vimscripts_dir . '/init_others.vim'` 
 
+nnoremap <silent> <Leader>h :<C-u>CocList<cr>
 
 
 "----------------------------------
