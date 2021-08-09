@@ -11,6 +11,8 @@ call plug#begin()
 
     Plug 'terryma/vim-expand-region'
 
+    Plug 'jsfaint/gen_tags.vim'
+
     " git
     Plug 'tpope/vim-fugitive'
     Plug 'cohama/agit.vim'
