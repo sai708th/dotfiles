@@ -6,6 +6,8 @@
 <Leader>df : file_old //not work
 <Leader>do : outline
 <Leader>dr : register //not use
+<Leader>dc : open cheatsheet directory
+<Leader>ds : open deol 
 
 
 ----------------------------------------------------------------------------
@@ -15,6 +17,7 @@
 <F2> : vimgrep next        | <F6> : close
 <F3> : neosnippet reload   | <F7> : open
 <F4> : init.vim reload     | <F8> : all open
+
 
 ----------------------------------------------------------------------------
   sp v
@@ -51,6 +54,11 @@ yh     <Plug>(agit-yank-hash)          | rb     <Plug>(agit-git-rebase)
 q      <Plug>(agit-exit)               | di     <Plug>(agit-diff)            
 C      <Plug>(agit-git-checkout)       | dl     <Plug>(agit-diff-with-local)            
 
+
+----------------------------------------------------------------------------
+  Others
+----------------------------------------------------------------------------
+<C-]> jump to definition
 
 
 
