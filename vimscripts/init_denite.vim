@@ -24,7 +24,7 @@ call denite#custom#map('normal'," ",'<Nop>')
 " dotfiles
 nnoremap [Denite]d :<C-u>Denite file -path=~/Dev/dotfiles <CR>
 " cheatsheets 
-nnoremap [Denite]c :<C-u>Denite file -path=~/Dev/dotfiles/cheatsheet <CR>
+nnoremap [Denite]c :<C-u>Denite file -path=~/Dev/dotfiles/cheatsheet -sorters=sorter/word<CR>
 " バッファ一覧
 nnoremap [Denite]b :<C-u>Denite buffer<CR>
 " レジスタ一覧
