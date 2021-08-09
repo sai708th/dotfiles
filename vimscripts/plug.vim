@@ -6,6 +6,7 @@ call plug#begin()
     Plug 'Shougo/vimfiler.vim'
     Plug 'Shougo/neosnippet-snippets'
     Plug 'Shougo/neosnippet'
+    Plug 'Shougo/deol.nvim'
 
     Plug 'vim-jp/vimdoc-ja'
 

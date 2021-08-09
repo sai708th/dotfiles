@@ -33,3 +33,7 @@ nnoremap [Denite]b :<C-u>Denite buffer<CR>
 nnoremap [Denite]f :<C-u>Denite file_old<CR>
 nnoremap [Denite]o :<C-u>Denite outline<CR>
 
+" deol
+nnoremap [Denite]s :<C-u>Deol<CR>
+"nnoremap [Denite]e :<C-u>DeolEdit<CR>
+tnoremap <ESC> <C-\><C-n>
