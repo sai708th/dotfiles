@@ -110,7 +110,8 @@ $ cabal install parsec
 #--------------------------------
 see https://qiita.com/aratana_tamutomo/items/59fb4c377863a385e032
 at any directory 
-ctags -R -f .tags
+-R ha universal nomi. alius de ctags wo universal ni henkou seyo. 
+ctags -R -f .tags 
 
 universal
 $ mkdir ~/.ctgas.d
