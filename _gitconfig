@@ -12,3 +12,5 @@
 	ff = false
 [pull]
 	ff = only
+[core]
+	editor = nvim
