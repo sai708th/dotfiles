@@ -1,3 +1,17 @@
+snippet     index
+options     head
+	%frame   : begin frame end
+	%block   : begin block end
+	%m, mm   : math
+	%dra     : draft
+	%item    : begin itemize end 
+	%itembox : begin itembox end 
+	%table   : table template
+	%class   : ex. class NP
+	%lang    : ex. language L
+	$mrm     : \mathrm{}
+	%;;      : kakko {}
+
 snippet     frame
 options     head
 	\\begin{frame}\\frametitle{${1}}
@@ -18,6 +32,14 @@ options     head
 	\[
 		${1}
 	\]
+
+snippet		dra
+options     head
+	\ifJpn
+		ja ${0}
+	\fi\ifEng
+		en
+	\fi
 
 snippet     item
 options     head
@@ -51,3 +73,13 @@ options     word
 snippet     class
 options     word
 	\class{${1}}${0}
+
+snippet     mrm
+options     word
+	\mathrm{${1}}${0}
+
+snippet     ;;
+options     word
+	{${1}}${0}
+
+
