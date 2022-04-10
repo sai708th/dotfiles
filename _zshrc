@@ -36,7 +36,8 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 # java path
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.10`
 
-export PATH=/usr/texbin:$PATH
+# texlive path (2021)
+export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
 
 # alias
 if type gmv > /dev/null 2>&1; then
