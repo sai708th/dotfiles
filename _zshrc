@@ -19,6 +19,9 @@ zle -N pet-select
 stty -ixon
 bindkey '^s' pet-select
 
+# moji code?
+export LANG=en_US.UTF-8
+
 # 環境変数 XDG Base Directory Specification
 export XDG_HOME="$HOME/Dev/XDG"
 export XDG_CONFIG_HOME="$XDG_HOME/config"
