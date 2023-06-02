@@ -36,6 +36,16 @@
 
 
 ----------------------------------------------------------------------------
+  ShowMarks
+----------------------------------------------------------------------------
+<Leader>mt   - Toggles ShowMarks on and off.
+<Leader>mo   - Forces ShowMarks on.
+<Leader>mh   - Clears the mark at the current line.
+<Leader>ma   - Clears all marks in the current buffer.
+<Leader>mm   - Places the next available mark on the current line.
+
+
+----------------------------------------------------------------------------
   s
 ----------------------------------------------------------------------------
 sh, sj, sk ,sl
@@ -59,8 +69,6 @@ C      <Plug>(agit-git-checkout)       | dl     <Plug>(agit-diff-with-local)
   Others
 ----------------------------------------------------------------------------
 <C-]> jump to definition
-
-
 
 
 

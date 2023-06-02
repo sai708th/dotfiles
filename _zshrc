@@ -1,15 +1,15 @@
 echo "sourced _zshrc"
 
 autoload -U compinit
-compinit
+compinit -u
 
 setopt IGNOREEOF
 
+# pet
 function prev() {
   PREV=$(fc -lrn | head -n 1)
   sh -c "pet new `printf %q "$PREV"`"
 }
-
 function pet-select() {
   BUFFER=$(pet search --query "$LBUFFER")
   CURSOR=$#BUFFER
@@ -42,10 +42,22 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 # texlive path (2021)
 export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
 
+# deno
+export DENO_INSTALL="/Users/develop/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# pyenv 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # alias
 if type gmv > /dev/null 2>&1; then
     alias rm='gmv -f --backup=numbered --target-directory ~/.Trash'
     alias mv='mv -i'
+fi 
+if type gsed > /dev/null 2>&1; then
+    alias sed='gsed'
 fi 
 alias cd='(){ cd $1 ; ls }'
 alias tree='tree -L 2'
@@ -58,7 +70,29 @@ else
   alias diff='diff -u'
 fi
 
-# OPAM configuration
-./Users/naoya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# rbenv path
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
 
+# my commands
+source $HOME_DOTFILES/shscripts/mycommands.sh
+
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/naoya/.pyenv/versions/anaconda3-2022.05/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/naoya/.pyenv/versions/anaconda3-2022.05/etc/profile.d/conda.sh" ]; then
+        . "/home/naoya/.pyenv/versions/anaconda3-2022.05/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/naoya/.pyenv/versions/anaconda3-2022.05/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

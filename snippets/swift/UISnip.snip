@@ -205,6 +205,8 @@ snippet     uib
 options     head
 	let rect${1} = CGRect.zero
 	let btn$1 = UIButton(frame: rect$1)
+	//let btn = UIButton(type: .system) //for image auto highlight. when custom not auto highlight.
+	// use btn.tintColor for setImage. otherwise use setBackgroundImage.
 	let sel$1 = #selector(${2}) // called method must be declared as @objc
 	btn$1.setTitle("hoge", for: .normal)
 	btn$1.setTitleColor(colorText, for: .normal)
@@ -212,8 +214,16 @@ options     head
 	btn$1.center = CGPoint.zero
 	btn$1.tag = 0
 	btn$1.addTarget(self, action: sel$1, for: .touchUpInside)
+	btn$1.addAction(.init{_ in self.update("d")}, for: .touchUpInside)
 	${3}.addSubview(btn$1)
 	${0}
+
+snippet     addAction
+options     word
+	//.touchUpInside, .valueChanged
+	addAction(.init{_ in 
+		${0}
+	}, for: .${1:touchUpInside})
 
 # UIStack
 snippet     uistack
@@ -287,8 +297,14 @@ snippet     uigr
 abbr        UIGestureRecognizer
 alias       uigr
 options     head
-	let recognizer = UI${1:Pan}GestureRecognizer(target: self, action: "${2}")
+	let selector = #selector(ViewController.pushedButton(sender:))
+	let recognizer = UI${1:Pan}GestureRecognizer(target: self, action: selector)
 	${3:uiview}.addGestureRecognizer(recognizer)
+
+# UIScreen
+snippet     uiscreen
+options     head
+	let width = UIScreen.main.bounds.size.width
 
 #=========================
 # CG~

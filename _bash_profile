@@ -4,3 +4,4 @@ if [ $SHLVL = 1 ]; then
 	  fi
 
 test -r ~/.bashrc && . ~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -171,15 +171,5 @@ nmap <Leader>g [gMap]
 nnoremap [gMap]n :cnext<CR>
 nnoremap [gMap]p :cprevious<CR>
 
-"------------------------------------
-" coq
-"------------------------------------
-augroup coq
-    let CoqIDE_coqtop = "/Users/naoya/.opam/system/bin/coqtop"
-    autocmd FileType coq nmap <silent> <C-n> ;CoqNext<CR>
-    autocmd FileType coq nmap <silent> <C-p> ;CoqUndo<CR>
-    autocmd FileType coq nmap <silent> <C-c><C-c> ;CoqToCursor<CR>
-augroup END
-
 filetype plugin indent on
 

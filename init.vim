@@ -51,17 +51,31 @@ set clipboard=unnamed
 set listchars=tab:»-,trail:-,nbsp:%
 set signcolumn=yes
 
+set notagbsearch
+
+
+"---------------------------------------
+" 2.5. Color Scheme
+"---------------------------------------
+let s:vimscripts_dir = $HOME_DOTFILES . '/vimscripts'
 
 
 "---------------------------------------
 " 3. Color Scheme
 "---------------------------------------
-colorscheme desert
+" check the existence for symbolic link of color scheme
+let s:chk = getftype(expand("$VIMRUNTIME/colors/aoidesert.vim"))
+if s:chk == "" 
+    " if not exist, make symlink to colorscheme in dotfiles
+    call system("ln -s ". s:vimscripts_dir ."/aoidesert.vim \"$VIMRUNTIME/colors/aoidesert.vim\"")
+endif
+colorscheme aoidesert
 hi Search ctermfg=white
 highlight DiffAdd    ctermfg=white ctermbg=darkblue
 highlight DiffDelete ctermfg=brown ctermbg=0
 highlight DiffChange ctermfg=gray  ctermbg=brown
 highlight DiffText   ctermfg=white ctermbg=brown
+highlight IncSearch  ctermfg=3     ctermbg=10
 
 
 
@@ -85,7 +99,7 @@ nnoremap <F5> zM
 nnoremap <F6> zm
 nnoremap <F7> zr
 nnoremap <F8> zR
-
+nnoremap <F9> :set list!<CR>
 
 
 "---------------------------------------
@@ -111,6 +125,8 @@ nnoremap gk k
 noremap ; :
 noremap : ;
 
+nnoremap <C-n> :<C-u>call vista#jump#NextTopLevel()<CR>
+nnoremap <C-p> :<C-u>call vista#jump#PrevTopLevel()<CR>
 
 
 "---------------------------------------
@@ -120,7 +136,6 @@ nnoremap <silent> <Leader>to :<C-u>tabedit<cr>
 nnoremap <silent> <Leader>tc :<C-u>tabclose<cr>
 nnoremap <silent> <Leader>th gT
 nnoremap <silent> <Leader>tl gt
-
 
 
 "---------------------------------------
@@ -136,17 +151,19 @@ command! -nargs=1 Vimswift vim /<args>/**/*.swift
 "--------------------------------------
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let s:vimscripts_dir = $HOME_DOTFILES . '/vimscripts'
 source `=s:vimscripts_dir . '/ctags.vim'`
 source `=s:vimscripts_dir . '/tex.vim'`
 source `=s:vimscripts_dir . '/plug.vim'`
-source `=s:vimscripts_dir . '/init_denite.vim'`
+"source `=s:vimscripts_dir . '/init_denite.vim'`
+source `=s:vimscripts_dir . '/init_deol.vim'`
+source `=s:vimscripts_dir . '/init_ddu.vim'`
 source `=s:vimscripts_dir . '/init_swift.vim'`
 source `=s:vimscripts_dir . '/init_coc.vim'`
+source `=s:vimscripts_dir . '/init_vista.vim'`
 "source `=s:vimscripts_dir . '/init_gitgutter.vim'`
 source `=s:vimscripts_dir . '/init_vimfiler.vim'`
 source `=s:vimscripts_dir . '/init_neosnippet.vim'`

@@ -1,13 +1,17 @@
 [user]
-	name = Naoya SHIRATORI
-	email = naoya19960313@gmail.com
+	name = Aoi SHIRATORI
+	email = aoy.shiratori@gmail.com
 [alias]
 	st = status
 	br = branch
 	co = checkout
-    cm = commit
+    cmt = commit
+    psh = push
 	gra = log --all --decorate --graph --oneline
 	untra = rm --cached
+    diffc = diff --cached
+    alias = !"if test -z $1; then loop=; for k in `git config --get-regexp ^alias\\. | sort | sed -e 's/^alias\\.\\(\\S*\\).*/\\1/g'`; do echo -n $k; loop="${loop}1"; if test ${#loop} -lt 5; then echo -n '\t'; else echo; loop=; fi; done; exit; fi; git config --list | grep ^alias\\.$1= | sed -e s/^alias\\.//; exit;"
+    adcmt = commit -a -m 
 [merge]
 	ff = false
 [pull]

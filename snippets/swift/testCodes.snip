@@ -1,0 +1,16 @@
+snippet     fonttest
+options     head
+	UIFont.familyNames.forEach { (familyName) in
+		let fontsInFamily = UIFont.fontNames(forFamilyName: familyName)
+		fontsInFamily.forEach({ (fontName) in
+			print(fontName)
+			let label = UILabel()
+			label.text = "フォント：" + fontName
+			label.font = UIFont(name: fontName, size: UIFont.labelFontSize)
+			label.sizeToFit()
+			label.frame.origin.y = view.contentSize.height
+			view.contentSize.width = max(view.contentSize.width, label.frame.width)
+			view.contentSize.height += label.frame.height + 10
+			view.addSubview(label)
+		})
+	}

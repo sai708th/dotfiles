@@ -29,6 +29,14 @@ options     head
 	    return ${3}
 	}
 
+snippet     varini
+options     head
+	//lazy var ${1} : ${2} = {
+	var ${1} : ${2} = {
+	    let tmp = ${3}
+	    return tmp
+	}()
+
 snippet     vars
 options     word
 	\(${1})${0}
