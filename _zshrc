@@ -5,6 +5,17 @@ compinit -u
 
 setopt IGNOREEOF
 
+# tmux 
+if [[ ! -n $TMUX ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  tmux attach-session -t "$ID"
+fi
+
 # pet
 function prev() {
   PREV=$(fc -lrn | head -n 1)
