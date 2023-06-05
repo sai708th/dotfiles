@@ -1,6 +1,6 @@
 
-open cheatsheets via denite.
-<Leader>dc
+open cheatsheets via ddu.
+<Leader>dm
 
 1. Cheatsheet list
 command_vim.txt
@@ -13,3 +13,19 @@ setup_tex.txt
 3. Memo
 memo_research.txt
 memo_project.txt
+
+
+
+
+<Leader>d [ddu]
+[ddu]d :<C-u>Ddu file -source-option-path='`expand('~/Dev/dotfiles')`'<CR>
+[ddu]m :<C-u>Ddu file -source-option-path='`expand('~/Dev/dotfiles/cheatshhet')`'<CR>
+[ddu]j :<C-u>Ddu mr<CR>
+[ddu]r :<C-u>Ddu mr -source-param-kind='mrr'<CR>
+[ddu]b :<C-u>Ddu buffer<CR>
+[ddu]g :<C-u>DduRg<CR>
+[ddu]G :<C-u>Ddu rg -source-param-input='`expand('<cword>')`'<CR>
+[ddu]o :<C-u>Vista!!<CR>
+[ddu]s :<C-u>NeoSnippetEdit<CR>
+[ddu]i :<C-u>Ddu rg -source-param-input='^nnoremap.*silent.*ddu' -source-param-path='`expand('~/Dev/dotfiles')`'<CR>
+

@@ -64,7 +64,7 @@ nnoremap <SID>[ddu]  <Nop>
 nmap     <Leader>d  <SID>[ddu]
 
 nnoremap <silent> <SID>[ddu]d :<C-u>Ddu file -source-option-path='`expand('~/Dev/dotfiles')`'<CR>
-nnoremap <silent> <SID>[ddu]m :<C-u>Ddu file -source-option-path='`expand('~/Dev/Projects/MyLibrary/privatememos')`'<CR>
+nnoremap <silent> <SID>[ddu]m :<C-u>Ddu file -source-option-path='`expand('~/Dev/dotfiles/cheatsheet')`'<CR>
 nnoremap <silent> <SID>[ddu]j :<C-u>Ddu mr<CR>
 nnoremap <silent> <SID>[ddu]r :<C-u>Ddu mr -source-param-kind='mrr'<CR>
 nnoremap <silent> <SID>[ddu]b :<C-u>Ddu buffer<CR>
