@@ -12,7 +12,7 @@ let g:deol#custom_map = {
     \ 'execute_line': '<CR>',
     \ 'previous_prompt': '<C-p>',
     \ 'next_prompt': '<C-n>',
-    \ 'paste_prompt': '<C-y>',
+    \ 'paste_prompt': 'jj',
     \ 'bg': '<q>',
     \ 'quit': '<C-z>',
     \ }
