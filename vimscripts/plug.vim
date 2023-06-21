@@ -36,8 +36,8 @@ call plug#begin()
     Plug 'kana/vim-submode'
 
     " swift, syntax
-    Plug 'apple/swift'
-    Plug 'keith/swift.vim' 
+    " Plug 'apple/swift'
+    " Plug 'keith/swift.vim' 
 
     " tag viewer like ide
     Plug 'liuchengxu/vista.vim'

@@ -69,9 +69,6 @@ export PATH="$PATH:$HOME/.nodebrew/current/bin"
 # java path
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.10`
 
-# texlive path (2021)
-export PATH=/usr/local/texlive/2021/bin/x86_64-linux:$PATH
-
 # deno
 export DENO_INSTALL="/Users/develop/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"

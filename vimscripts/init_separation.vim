@@ -26,11 +26,11 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+silent! call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+silent! call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+silent! call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+silent! call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+silent! call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+silent! call submode#map('bufmove', 'n', '', '<', '<C-w><')
+silent! call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+silent! call submode#map('bufmove', 'n', '', '-', '<C-w>-')
