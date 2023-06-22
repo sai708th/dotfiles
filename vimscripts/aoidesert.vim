@@ -102,5 +102,14 @@ hi Ignore	cterm=bold ctermfg=7
 hi Ignore	ctermfg=darkgrey
 hi Error	cterm=bold ctermfg=7 ctermbg=1
 
-
 "vim: sw=4
+
+
+" 追記23.06.21
+hi Search ctermfg=white
+hi DiffAdd    ctermfg=white ctermbg=darkblue
+hi DiffDelete ctermfg=brown ctermbg=0
+hi DiffChange ctermfg=gray  ctermbg=brown
+hi DiffText   ctermfg=white ctermbg=brown
+hi IncSearch  ctermfg=3     ctermbg=10
+

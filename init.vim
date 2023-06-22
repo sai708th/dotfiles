@@ -70,12 +70,6 @@ if s:chk == ""
     call system("ln -s ". s:vimscripts_dir ."/aoidesert.vim \"$VIMRUNTIME/colors/aoidesert.vim\"")
 endif
 colorscheme aoidesert
-hi Search ctermfg=white
-highlight DiffAdd    ctermfg=white ctermbg=darkblue
-highlight DiffDelete ctermfg=brown ctermbg=0
-highlight DiffChange ctermfg=gray  ctermbg=brown
-highlight DiffText   ctermfg=white ctermbg=brown
-highlight IncSearch  ctermfg=3     ctermbg=10
 
 
 
@@ -109,7 +103,7 @@ let mapleader = ' ' " <Leader>
 " cancel
 inoremap <silent> jj <ESC>
 " 改行
-noremap <Leader><Leader> o<ESC>
+nnoremap <Leader><Leader> o<ESC>
 " turn off lighting
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " next, back for command mode

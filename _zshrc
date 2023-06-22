@@ -5,9 +5,11 @@ compinit -u
 
 setopt IGNOREEOF
 
+# prompt configuration
+PROMPT="%F{202}(%f%F{45}%n%f%F{202}.%f%F{15}%m%f%F{202})%f"$'\n'"%~ "
+
 # env check
-if [[ -n $DIR_DEV ]]; then
-else
+if [[ ! -n $DIR_DEV ]]; then
     export DIR_DEV="$HOME/Dev"
 fi
 
