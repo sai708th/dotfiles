@@ -1,5 +1,7 @@
 
 call plug#begin()
+    " colorscheme
+    Plug 'overcache/NeoSolarized'
     " needs for vimfiler
     Plug 'Shougo/unite.vim' 
     " Plug 'Shougo/denite.nvim'

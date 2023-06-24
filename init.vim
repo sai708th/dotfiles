@@ -64,12 +64,14 @@ let s:vimscripts_dir = $HOME_DOTFILES . '/vimscripts'
 " 3. Color Scheme
 "---------------------------------------
 " check the existence for symbolic link of color scheme
-let s:chk = getftype(expand("$VIMRUNTIME/colors/aoidesert.vim"))
+let s:chk = getftype(expand("$VIMRUNTIME/colors/NeoSolarized.vim"))
 if s:chk == "" 
     " if not exist, make symlink to colorscheme in dotfiles
-    call system("ln -s ". s:vimscripts_dir ."/aoidesert.vim \"$VIMRUNTIME/colors/aoidesert.vim\"")
+    call system("ln -s ". s:vimscripts_dir ."/NeoSolarized.vim \"$VIMRUNTIME/colors/NeoSolarized.vim\"")
 endif
-colorscheme aoidesert
+set termguicolors
+colorscheme NeoSolarized
+
 
 
 
@@ -126,10 +128,10 @@ nnoremap <C-p> :<C-u>call vista#jump#PrevTopLevel()<CR>
 "---------------------------------------
 " 7. tab open close
 "---------------------------------------
-nnoremap <silent> <Leader>to :<C-u>tabedit<cr>
-nnoremap <silent> <Leader>tc :<C-u>tabclose<cr>
-nnoremap <silent> <Leader>th gT
-nnoremap <silent> <Leader>tl gt
+nnoremap <silent> tt :<C-u>tabedit<cr>
+nnoremap <silent> TT :<C-u>tabclose<cr>
+"nnoremap <silent> <Leader>th gT
+nnoremap <silent> <C-t> gt
 
 
 "---------------------------------------

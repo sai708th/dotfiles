@@ -1,5 +1,6 @@
 
 " deol
+" execute 'Deol' '-cwd='.('%'->expand()->fnamemodify(':h'))
 nnoremap <C-z> :<C-u>Deol<CR>
 "nnoremap [Denite]e :<C-u>DeolEdit<CR>
 tnoremap <C-z> <C-\><C-n>

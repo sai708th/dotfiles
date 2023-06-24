@@ -106,7 +106,13 @@ hi Error	cterm=bold ctermfg=7 ctermbg=1
 
 
 " 追記23.06.21
+set termguicolors
+hi Normal  guifg=#839496 guibg=#002b36
+hi NonText guibg=#002b36
+hi StatusLine guibg=#809090
 hi Search ctermfg=white
+
+
 hi DiffAdd    ctermfg=white ctermbg=darkblue
 hi DiffDelete ctermfg=brown ctermbg=0
 hi DiffChange ctermfg=gray  ctermbg=brown
