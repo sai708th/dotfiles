@@ -1,7 +1,6 @@
 
 " deol
-" execute 'Deol' '-cwd='.('%'->expand()->fnamemodify(':h'))
-nnoremap <C-z> :<C-u>Deol<CR>
+nnoremap <C-z> :execute 'Deol' '-cwd='.('%'->expand()->fnamemodify(':h'))<CR>
 "nnoremap [Denite]e :<C-u>DeolEdit<CR>
 tnoremap <C-z> <C-\><C-n>
 let g:deol#custom_map = {
@@ -12,7 +11,7 @@ let g:deol#custom_map = {
     \ 'execute_line': '<CR>',
     \ 'previous_prompt': '<C-p>',
     \ 'next_prompt': '<C-n>',
-    \ 'paste_prompt': 'jj',
+    \ 'paste_prompt': '<C-y>',
     \ 'bg': '<q>',
     \ }
 
