@@ -69,8 +69,8 @@ if s:chk == ""
     " if not exist, make symlink to colorscheme in dotfiles
     call system("ln -s ". s:vimscripts_dir ."/NeoSolarized.vim \"$VIMRUNTIME/colors/NeoSolarized.vim\"")
 endif
-set termguicolors
 colorscheme NeoSolarized
+set termguicolors
 
 
 
@@ -123,6 +123,11 @@ noremap : ;
 
 nnoremap <C-n> :<C-u>call vista#jump#NextTopLevel()<CR>
 nnoremap <C-p> :<C-u>call vista#jump#PrevTopLevel()<CR>
+
+inoremap <C-d> <Del>
+imap <C-h> <BS>
+nnoremap x "_x
+nnoremap c "_c
 
 
 "---------------------------------------

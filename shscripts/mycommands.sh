@@ -6,7 +6,8 @@ function chgit() {
     local REPO2=`find $HOME/Dev/Projects/MyLibrary  -maxdepth 1 -mindepth 1 -type d | tr "\n" " "`
     local REPO3="$HOME/Dev/dotfiles"
     local REPO4="$HOME/Dev/aoymoon"
-    local STR="$REPO1 $REPO2 $REPO3 $REPO4"
+    local REPO5="$HOME/Dev/Dockerfiles"
+    local STR="$REPO1 $REPO2 $REPO3 $REPO4 $REPO5"
 
     if [ $# -eq 0 ] ; then
         echo 'help: -h'

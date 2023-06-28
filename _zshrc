@@ -37,19 +37,37 @@ if chCmdExt tmux; then
 fi
 
 
-# pet
-function prev() {
-  PREV=$(fc -lrn | head -n 1)
-  sh -c "pet new `printf %q "$PREV"`"
-}
-function pet-select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
-stty -ixon
-bindkey '^s' pet-select
+# fzf
+if chCmdExt fzf; then
+    function select-history() {
+      BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+      CURSOR=$#BUFFER
+    }
+    zle -N select-history
+    bindkey '^p' select-history
+else 
+    echo 'not installed: fzf'
+fi
+
+#zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
+if chCmdExt zplug; then
+    zplug "agkozak/zsh-z"
+
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    # Then, source plugins and add commands to $PATH
+    zplug load --verbose
+else 
+    echo 'not installed: zplug'
+fi
 
 # moji code?
 export LANG=en_US.UTF-8
