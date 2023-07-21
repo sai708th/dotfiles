@@ -63,6 +63,7 @@ $ ln -s ~/Dev/dotfiles/_zshrc .zshrc
 $ brew install neovim
 $ brew install tmux
 $ brew install zsh
+$ brew install hudochenkov/sshpass/sshpass
 
 6. Setup nvim
 $ cd $XDG_HOME
