@@ -6,7 +6,8 @@ compinit -u
 setopt IGNOREEOF
 
 # prompt configuration
-PROMPT="%F{202}(%f%F{45}%n%f%F{202}.%f%F{15}%m%f%F{202})%f"$'\n'"%~ "
+# PROMPT="%F{202}(%f%F{45}%n%f%F{202}.%f%F{15}%m%f%F{202})%f"$'\n'"%~ "
+PROMPT="%F{202}(%f%F{45}%n%f%F{202})%f%~ "
 
 # env check
 if [[ ! -n $DIR_DEV ]]; then
@@ -121,6 +122,10 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
+
+# on tmux, ssh with TERM=tmux-256color causes an issue when executing vi(vim)
+# https://github.com/alacritty/alacritty/issues/1208
+alias ssh='TERM=xterm-256color \ssh'
 
 # rbenv path
 [[ -d ~/.rbenv  ]] && \
