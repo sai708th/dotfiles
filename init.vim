@@ -129,6 +129,7 @@ imap <C-h> <BS>
 nnoremap x "_x
 nnoremap c "_c
 
+cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. "%s///g<Left><Left>" : 's'
 
 "---------------------------------------
 " 7. tab open close
