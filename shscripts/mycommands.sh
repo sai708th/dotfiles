@@ -1,13 +1,21 @@
-
 source $HOME_DOTFILES/shscripts/git_status.sh
 
 function chgit() {
-    local REPO1=`find $HOME/Dev/Projects/Developing -maxdepth 1 -mindepth 1 -type d | tr "\n" " "`
-    local REPO2=`find $HOME/Dev/Projects/MyLibrary  -maxdepth 1 -mindepth 1 -type d | tr "\n" " "`
-    local REPO3="$HOME/Dev/dotfiles"
-    local REPO4="$HOME/Dev/aoymoon"
-    local REPO5="$HOME/Dev/Dockerfiles"
-    local STR="$REPO1 $REPO2 $REPO3 $REPO4 $REPO5"
+    local repodat="$HOME/.repodat"
+    local STR=""
+    for line in `cat $repodat`
+    do
+        echo $line | grep -q '^\s*#' #コメントチェック   #  で始まるときはコメント
+        if [ $? = 0 ]; then 
+            continue
+        fi
+        echo $line | grep -q '/\*$'  #配下監視チェック   /* で終わるときは深さ1のディレクトリfindする
+        if [ $? = 0 ]; then
+            STR=${STR}$(find $(eval echo $line | sed 's/\*$//') -maxdepth 0 -type d | tr "\n" ' ')
+        else
+            STR="${STR}$(eval echo $line) "
+        fi
+    done
 
     if [ $# -eq 0 ] ; then
         echo 'help: -h'
@@ -37,44 +45,4 @@ function chgit() {
         fi
     fi 
 }
-
-function cht() {
-    local pathtd="$HOME/Dev/Projects/MyLibrary/PrivateMemos"
-
-    if [ $# -eq 0 ] ; then
-        git -C $pathtd pull
-        git -C $pathtd adcmt "task commit"
-        git -C $pathtd push
-    elif [ "$1" = "-h" ] ; then
-        echo "cht"                    # pull adcmt push
-        echo "cht -h"                 # help
-    fi
-}
-
-function chall() {
-    if [ $# -eq 0 ] ; then
-        chgit
-        echo '---------------------------'
-        cht
-    elif [ "$1" = "-h" ] ; then
-        echo "chall"           # check all
-        echo "chall -h"          # help
-        echo '---------------------------'
-        echo "chgit"
-        echo "cht"
-    elif [ "$1" = "stack" ] ; then
-        sed -i "1i$2" "$pathtd"
-    elif [ "$1" = "queue" ] ; then
-        sed -i "$ a $2" "$pathtd"
-    elif [ "$1" = "show" ] ; then
-        cat $pathtd
-    elif [ "$1" = "done" ] ; then
-        if [ $# -eq 1 ] ; then
-            sed -i "1d" "$pathtd"
-        elif [ "$#" -eq 2 ] ; then
-            sed -i "$2d" "$pathtd"
-        fi
-    fi
-}
-
 

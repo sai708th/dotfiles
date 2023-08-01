@@ -1,0 +1,8 @@
+# comment like this
+# dir/dir/dir   : this dir. is a chgit target.
+# dir/dir/dir/* : sub dirs. are chgit targets.
+$HOME/Dev/Projects/Developing/*
+$HOME/Dev/Projects/MyLibrary/*
+$HOME/Dev/dotfiles
+$HOME/Dev/aoymoon
+$HOME/Dev/Dockerfiles
